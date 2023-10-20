@@ -24,8 +24,11 @@ void enqueu(){i
 }
 void dequeu(){
     node *temp;
-    if(front==rear){
+    if(front==NULL){
+        printf("Underflow");
+    }else if(front==rear){
         front=rear=NULL;
+        printf("%d is poped", front->data);
         free(front);
     }
     else{

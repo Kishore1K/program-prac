@@ -6,10 +6,12 @@ void enqueue(){
     int x;
     printf("Enter the element");
     scanf("%d", &x);
-    if(f==-1 && r==(size-1) || (f==(r-1))){
+    if( r==(size-1)){
         printf("overflow");
     }
     else{
+        if(front == -1)
+            front=0;
         r+=1;
         queue[r]=x;
     }
