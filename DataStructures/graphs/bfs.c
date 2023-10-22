@@ -11,7 +11,7 @@ void bfs(int v){
     visited[v]=1;
 
     while(f<=r){
-        v= queue[++f];
+        v= queue[f++];
         for(u=0; u<n; u++){
             if(visited[u]==0 && (A[v][u]==1)){
                 queue[++r]=u;
@@ -38,7 +38,7 @@ int main(){
         printf("\n");
     }
 
-    for(int i=0; i<10; i++){
+    for(int i=0; i<n; i++){
         visited[i]=0;
     }
     int source;
