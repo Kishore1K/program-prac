@@ -1,5 +1,6 @@
 package DSA.interview;
 import java.lang.Math;
+import java.util.*;
 class Basic {
 
     public  static int  Fibonacci(int n){
@@ -69,11 +70,26 @@ class Basic {
         }
         return n*factorial(n-1);
     }
-    public static double randomNumber(int n){
+    public static int randomNumber(int n){
         if(n==1){
-            return Math.random()*(100-0+1);
+            return (int)Math.random()*(100-0+1);
         }
+        return new Random().nextInt(100);
     }
+    public static String revString(String str){
+        char[] ch = str.toCharArray();
+        for(int i=0; i<ch.length/2; i++){
+            char temp = ch[i];
+            ch[i]= ch[str.length()-i-1];
+            ch[str.length()-i-1]=temp;
+        }
+        return new String(ch);
+
+    }
+
+
+
+
     public static void main(String[] args){
         System.out.println("Fabinocci "+ Fibonacci(10));
         System.out.println("Prime"+ isPrime(6));
@@ -82,11 +98,8 @@ class Basic {
         System.out.println("Amstrong Number "+isAmstrongNumber(1634));
         System.out.println("Factorail Number "+factorial(5));
         System.out.println("Factorail Number "+factorial(5));
-        System.out.println("Random Number "+randomNumber());
-
-
-
-
+        System.out.println("Random Number "+randomNumber(2));
+        System.out.println("Reverse String "+revString("Kishore"));
 
     }
 }
