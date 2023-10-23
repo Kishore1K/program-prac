@@ -87,6 +87,21 @@ class Basic {
 
     }
 
+    // Compare Two Objects in Java
+    static void objCompare(){
+
+    }
+
+    static void asci(){
+        int a = 'A';
+        int z = 'Z';
+
+        int a1 = (int)'a';
+        int z1 = (int)'z';
+        System.out.println("A ="+a+", z = "+z);
+        System.out.println("a = "+a1+", z= "+z1);
+    }
+
 
 
 
@@ -100,6 +115,6 @@ class Basic {
         System.out.println("Factorail Number "+factorial(5));
         System.out.println("Random Number "+randomNumber(2));
         System.out.println("Reverse String "+revString("Kishore"));
-
+        asci();
     }
 }
