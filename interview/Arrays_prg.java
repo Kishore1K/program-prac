@@ -69,7 +69,8 @@ public class Arrays_prg {
                 System.out.print(arr[i]+ " ");
             }
         }
-
+        System.out.println();
+        
        /*for(int i=0; i<arr.length; i++){
             for(int j=i+1; j<arr.length; j++){
                 if(arr[i]==arr[j]){
@@ -79,10 +80,17 @@ public class Arrays_prg {
         } */ 
 
     }
+    static void printArray(int arr[]){
+        for (int i : arr) {
+            System.out.print(i+ " ");
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
         freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
         System.out.println(Arrays.toString(arrLeftRotate(new int[]{1,2,3,4,5,6}, 2)));
         printDuplicate(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        printArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
     }
 }
