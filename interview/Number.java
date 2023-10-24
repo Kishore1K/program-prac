@@ -88,7 +88,18 @@ public class Number {
 
         return new int[]{a, b};
     }
+    // Find GCD of Two Numbers
+    static int gcd(int a, int b){
 
+        while(b!=0){
+            if(a>b){
+                a=a-b;
+            }else{
+                b = b-a;
+            }
+        }
+        return a;
+    }
 
 
     public static void main(String[] args) {
@@ -97,6 +108,7 @@ public class Number {
         System.out.println(isAutomorphic(5)); //76 ,23
         System.out.println(isPetersonNumber(145)); //773
         System.out.println(Arrays.toString(swap(10, 20)));
+        System.out.println(gcd(12, 8));
     }
     
 }
