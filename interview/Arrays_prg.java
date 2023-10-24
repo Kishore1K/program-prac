@@ -235,6 +235,21 @@ public class Arrays_prg {
         return secSmallest;
 
     } 
+    // Java Program to print Odd and Even Numbers from an Array
+    static void printOddEven(int arr[]){
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]%2==0){
+                System.out.println("Even "+arr[i]);
+            }
+
+        }
+        for(int  i=0; i<arr.length; i++){
+            if(arr[i]%2!=0){
+                System.out.println("Odd "+arr[i]);
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
         freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
@@ -256,6 +271,6 @@ public class Arrays_prg {
         System.out.println(thirdLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
         System.out.println(secLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
         System.out.println(secSmallest(new int[]{2,6,1,5,-1,9,4,7, 8, 100}));
-
+        printOddEven(new int[]{2,6,1,5,-1,9,4,7, 8, 100});
     }
 }
