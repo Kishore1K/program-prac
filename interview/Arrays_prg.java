@@ -54,10 +54,35 @@ public class Arrays_prg {
         return arr;
 
     }
+    //  Java Program to print the duplicate elements of an array
+    static void printDuplicate(int[] arr){
+        int count;
+        for(int i=0;i<arr.length; i++){
+            count=1;
+            for(int j=0; j<arr.length; j++){
+                if(arr[i]==arr[j] && i!=j){
+                    count++;
+                    arr[j]=-1;
+                }
+            }
+            if(arr[i]!=-1 && count >1){
+                System.out.print(arr[i]+ " ");
+            }
+        }
+
+       /*for(int i=0; i<arr.length; i++){
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i]==arr[j]){
+                    System.out.print(arr[j]+" ");
+                }
+            }
+        } */ 
+
+    }
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
         freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
         System.out.println(Arrays.toString(arrLeftRotate(new int[]{1,2,3,4,5,6}, 2)));
-        
+        printDuplicate(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
     }
 }
