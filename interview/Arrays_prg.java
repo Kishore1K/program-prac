@@ -80,9 +80,39 @@ public class Arrays_prg {
         } */ 
 
     }
+
     static void printArray(int arr[]){
         for (int i : arr) {
             System.out.print(i+ " ");
+        }
+        System.out.println();
+    }
+
+    //  Java Program to print the elements of an array in reverse order
+    static int[] revArray(int arr[]){
+        int temp;
+        for(int i=0; i<arr.length/2;i++){
+            temp = arr[i];
+            arr[i]=arr[arr.length-i-1];
+            arr[arr.length-i-1]=temp;
+        }
+        return arr;
+    }
+    //  Java Program to print the elements of an array present on even position
+    static void printArrayEven(int arr[]){
+        for(int i=0; i<arr.length; i++){
+            if(i%2==0){
+                System.out.print(arr[i]+ " ");
+            }
+        }
+        System.out.println();
+    }
+        //  Java Program to print the elements of an array present on odd position
+        static void printArrayOdd(int arr[]){
+        for(int i=0; i<arr.length; i++){
+            if(i%2!=0){
+                System.out.print(arr[i]+ " ");
+            }
         }
         System.out.println();
     }
@@ -92,5 +122,10 @@ public class Arrays_prg {
         System.out.println(Arrays.toString(arrLeftRotate(new int[]{1,2,3,4,5,6}, 2)));
         printDuplicate(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
         printArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // reverse
+        printArray(revArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8}));
+        printArrayEven(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // odd
+        printArrayOdd(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
     }
 }
