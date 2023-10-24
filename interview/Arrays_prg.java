@@ -180,7 +180,7 @@ public class Arrays_prg {
         int temp;
         for(int i=0; i<arr.length; i++){
             for(int j=i+1; j<arr.length; j++){
-                if(arr[i]<arr[j] && i!=j){
+                if(arr[i]<arr[j]){
                     temp=arr[i];
                     arr[i]=arr[j];
                     arr[j]=temp;
@@ -189,6 +189,52 @@ public class Arrays_prg {
         }
         return arr;
     }
+    static int thirdLargest(int arr[]){
+        int largest, secLargest, thirdLargest;
+        largest=secLargest=thirdLargest=arr[0];
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]>largest){
+                thirdLargest= secLargest;
+                secLargest=largest;
+                largest=arr[i];
+            }else if(arr[i]<largest && arr[i]>secLargest){
+                thirdLargest= secLargest;
+                secLargest=arr[i];
+            }else if(arr[i]>thirdLargest && arr[i]<secLargest){
+                thirdLargest=arr[i];
+            }
+        }
+        return thirdLargest;
+    }
+    //  Java Program to Find 2nd Largest Number in an array
+    static int secLargest(int arr[]){
+        int largest, secLargest;
+        largest=secLargest=arr[0];
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]>largest){
+                secLargest= largest;
+                largest=arr[i];
+            }else if(arr[i]>secLargest && arr[i]<largest){
+                secLargest=arr[i];
+            }
+        }
+        return secLargest;
+    }
+     //  Java Program to Find 2nd smallest Number in an array
+    static int secSmallest(int arr[]){
+        int secSmallest,smallest;
+        secSmallest=smallest=arr[0];
+        for(int i=0;i<arr.length; i++){
+            if(arr[i]<smallest){
+                secSmallest=smallest;
+                smallest=arr[i];
+            }else if(arr[i]>smallest && arr[i]<secSmallest){
+                secSmallest=arr[i];
+            }
+        }
+        return secSmallest;
+
+    } 
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
         freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
@@ -207,6 +253,9 @@ public class Arrays_prg {
         System.out.println(sumElements(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
         printArray(ascendingSort(new int[]{2,6,1,5,9,4,7}));
         printArray(descendingSort(new int[]{2,6,1,5,9,4,7}));
+        System.out.println(thirdLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
+        System.out.println(secLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
+        System.out.println(secSmallest(new int[]{2,6,1,5,-1,9,4,7, 8, 100}));
 
     }
 }
