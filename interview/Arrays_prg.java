@@ -160,6 +160,35 @@ public class Arrays_prg {
 
         return arr;
     }
+
+    // Java Program to sort the elements of an array in ascending order
+    static int[] ascendingSort(int arr[]){
+        int temp;
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length; j++){
+                if(arr[i]<arr[j] && i!=j){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+    // Java Program to sort the elements of an array in descending order
+    static int[] descendingSort(int arr[]){
+        int temp;
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length; j++){
+                if(arr[i]>arr[j] && i!=j){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        return arr;
+    }
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
         freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
@@ -176,7 +205,8 @@ public class Arrays_prg {
         System.out.println(largestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
         System.out.println(smallestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
         System.out.println(sumElements(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
-
+        printArray(ascendingSort(new int[]{2,6,1,5,9,4,7}));
+        printArray(descendingSort(new int[]{2,6,1,5,9,4,7}));
 
     }
 }
