@@ -1,5 +1,8 @@
 package DSA.interview;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Number {
 
     static int revNumber(int num){
@@ -56,11 +59,44 @@ public class Number {
 
     }
 
+    static int nPrime(int n){
+        int count=0, num=1, i;
+        while(count < n){
+            num+=1;
+            for(i=2; i<=num; i++){
+                if(num%i==0){
+                    break;
+                }
+            }
+            if(num==i){
+                count++;
+            }
+
+
+        }
+        return num;
+    }
+
+    static int[] swap(int a, int b){
+        // a = a^b;
+        // b = a^b;
+        // a = a^b;
+
+        a = a*b;
+        b = a/b;
+        a = a/b;
+
+        return new int[]{a, b};
+    }
+
+
+
     public static void main(String[] args) {
         System.out.println(revNumber(102));
         System.out.println(countWords("Hello  Kishore K Reddy Karthick"));
         System.out.println(isAutomorphic(5)); //76 ,23
         System.out.println(isPetersonNumber(145)); //773
+        System.out.println(Arrays.toString(swap(10, 20)));
     }
     
 }
