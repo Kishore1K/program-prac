@@ -100,7 +100,14 @@ public class Number {
         }
         return a;
     }
-
+    static boolean isPerfectSquare(int num){
+        for(int i=1; i*i<=num; i++){
+            if((num%i==0) && (num/i==i)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         System.out.println(revNumber(102));
@@ -109,6 +116,7 @@ public class Number {
         System.out.println(isPetersonNumber(145)); //773
         System.out.println(Arrays.toString(swap(10, 20)));
         System.out.println(gcd(12, 8));
+        System.out.println(isPerfectSquare(64));
     }
     
 }
