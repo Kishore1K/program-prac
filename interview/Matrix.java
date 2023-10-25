@@ -79,13 +79,49 @@ public class Matrix {
         }
         return a;
     }
-
+    // Java Program to display the upper triangular matrix
+        static int[][] upperTriangularMatrix(int a[][]){
+        if(a[0].length!=a[1].length){
+            return a;
+        }
+        for(int i=0; i<a[0].length;i++){
+            for(int j=0; j<a[0].length; j++){
+                if(i<j || i==j){
+                    continue;
+                }else{
+                    a[i][j]=0;
+                }
+            }
+        }
+        return a;
+    }
+    // Java Program to find the frequency of odd & even numbers in the given matrix
+    static void frequencyOfElem(int a[][]){
+        int odd=0, even=0;
+        for(int i=0; i<a[0].length; i++){
+            for(int j=0; j<a[1].length; j++){
+                if(a[i][j]%2==0){
+                    even++;
+                }else{odd++;}
+            }
+        }
+        System.out.println("Odd = "+odd+" Even = "+even);
+    }
+    //  Java Program to find the product of two matrices
+    //  Java Program to find the sum of each row and each column of a matrix
+    //  Java Program to find the transpose of a given matrix
+    //  Java Program to determine whether a given matrix is an identity matrix
+    //  Java Program to determine whether a given matrix is a sparse matrix
+    // Java Program to Transpose matrix
     public static void main(String[] args) {
-        printMatrix(addMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}, 3, 3));
+        /*printMatrix(addMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}, 3, 3));
         printMatrix(multiplyMatrix(new int[][]{{1,1,1},{2,2,2},{3,3,3}},new int[][]{{1,1,1},{2,2,2},{3,3,3}}));
         printMatrix(subMatrix(new int[][]{ {4, 5, 6},{3, 4, 1},{1, 2, 3}},new int[][]{{2, 0, 3}, {2, 3, 1},{1, 1, 1}  }));
         System.out.println(isMatrixEqual(new int[][]{{1,3,4},{2,4,3},{1,2,4}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}));
-        printMatrix(lowerTriangularMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}}));
+        printMatrix(lowerTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
+        printMatrix(upperTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));*/
+        frequencyOfElem(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
+
     }
     
 }
