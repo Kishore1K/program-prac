@@ -138,7 +138,31 @@ public class Matrix {
         return t;
     }
     //  Java Program to determine whether a given matrix is an identity matrix
+    static boolean isIdentity(int a[][]){
+        for(int i=0; i<a[0].length; i++){
+            for(int j=0; j<a[1].length; j++){
+                if(i==j && a[i][j]!=1){
+                    return false;
+                }
+                if(i != j   && a[i][j]!=0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     //  Java Program to determine whether a given matrix is a sparse matrix
+    static boolean isSparseMatrix(int a[][]){
+        int count=0;
+        for(int i=0; i<a.length; i++){
+            for(int j=0; j<a[0].length; j++){
+                if(a[i][j]==0){
+                    count++;
+                }
+            }
+        }
+        return count > (a[0].length*a[1].length)/2;
+    }
     // Java Program to Transpose matrix
     public static void main(String[] args) {
         /*printMatrix(addMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}, 3, 3));
@@ -151,7 +175,8 @@ public class Matrix {
         compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});*/
         printMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
         printMatrix(transpose(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}}));
-        
+        System.out.println(isIdentity(new int[][]{ {1, 0, 0}, {0, 1, 0},{0, 0, 1}}));
+        System.out.println(isSparseMatrix(new int[][]{{1, 0, 0}, {1, 1, 0},{0, 0, 1}}));
 
     }
     
