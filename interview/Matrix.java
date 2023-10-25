@@ -128,6 +128,15 @@ public class Matrix {
         }
     }
     //  Java Program to find the transpose of a given matrix
+    static int[][] transpose(int a[][]){
+        int t[][]=new int[a.length][a[0].length];
+        for(int i=0; i<a[0].length;i++){
+            for(int j=0; j<a.length; j++){
+                t[i][j]=a[j][i];
+            }
+        }
+        return t;
+    }
     //  Java Program to determine whether a given matrix is an identity matrix
     //  Java Program to determine whether a given matrix is a sparse matrix
     // Java Program to Transpose matrix
@@ -137,10 +146,12 @@ public class Matrix {
         printMatrix(subMatrix(new int[][]{ {4, 5, 6},{3, 4, 1},{1, 2, 3}},new int[][]{{2, 0, 3}, {2, 3, 1},{1, 1, 1}  }));
         System.out.println(isMatrixEqual(new int[][]{{1,3,4},{2,4,3},{1,2,4}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}));
         printMatrix(lowerTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
-        printMatrix(upperTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));*/
+        printMatrix(upperTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
         frequencyOfElem(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
+        compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});*/
         printMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
-        compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
+        printMatrix(transpose(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}}));
+        
 
     }
     
