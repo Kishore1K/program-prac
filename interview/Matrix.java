@@ -107,8 +107,26 @@ public class Matrix {
         }
         System.out.println("Odd = "+odd+" Even = "+even);
     }
-    //  Java Program to find the product of two matrices
     //  Java Program to find the sum of each row and each column of a matrix
+    static void compMatrix(int a[][]){
+        int rowSum=0, colSum=0;
+        for(int i=0; i<a.length; i++){
+            rowSum=0;
+            for(int j=0;j<a[0].length; j++){
+                rowSum+=a[i][j];
+                
+            }
+            System.out.format("Sum of %d row is = %d\n",i, rowSum);
+        }
+
+        for(int i=0; i<a[0].length;i++){
+            colSum=0;
+            for(int j=0; j<a.length; j++){
+                colSum+=a[i][j];
+            }
+            System.out.format("Sum of %d col is = %d\n",i, colSum);
+        }
+    }
     //  Java Program to find the transpose of a given matrix
     //  Java Program to determine whether a given matrix is an identity matrix
     //  Java Program to determine whether a given matrix is a sparse matrix
@@ -121,6 +139,8 @@ public class Matrix {
         printMatrix(lowerTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
         printMatrix(upperTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));*/
         frequencyOfElem(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
+        printMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
+        compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
 
     }
     
