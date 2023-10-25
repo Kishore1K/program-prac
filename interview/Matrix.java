@@ -163,16 +163,15 @@ public class Matrix {
         }
         return count > (a[0].length*a[1].length)/2;
     }
-    // Java Program to Transpose matrix
     public static void main(String[] args) {
-        /*printMatrix(addMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}, 3, 3));
+        printMatrix(addMatrix(new int[][]{{1,3,4},{2,4,3},{3,4,5}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}, 3, 3));
         printMatrix(multiplyMatrix(new int[][]{{1,1,1},{2,2,2},{3,3,3}},new int[][]{{1,1,1},{2,2,2},{3,3,3}}));
         printMatrix(subMatrix(new int[][]{ {4, 5, 6},{3, 4, 1},{1, 2, 3}},new int[][]{{2, 0, 3}, {2, 3, 1},{1, 1, 1}  }));
         System.out.println(isMatrixEqual(new int[][]{{1,3,4},{2,4,3},{1,2,4}},new int[][]{{1,3,4},{2,4,3},{1,2,4}}));
         printMatrix(lowerTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
         printMatrix(upperTriangularMatrix(new int[][]{{1,2,3},{8, 6, 4}, {4, 5, 6}}));
         frequencyOfElem(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
-        compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});*/
+        compMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
         printMatrix(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}});
         printMatrix(transpose(new int[][]{{4, 1, 3},{3, 5, 7}, {8, 2, 6}}));
         System.out.println(isIdentity(new int[][]{ {1, 0, 0}, {0, 1, 0},{0, 0, 1}}));
