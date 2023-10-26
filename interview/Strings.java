@@ -1,6 +1,7 @@
 package DSA.interview;
 
-import java.util.Arrays;
+import java.text.Collator;
+import java.util.*;
 
 public class Strings {
     // Java Program to count the total number of characters in a string
@@ -145,6 +146,18 @@ public class Strings {
         }
     }
     // Java Program to find maximum and minimum occurring character in a string
+    static void ocChar(String str){
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(int i=0; i<str.length(); i++){
+            if(!map.containsKey(str.charAt(i))){
+                map.put(str.charAt(i), 1);
+            }else{
+                map.put(str.charAt(i), map.get(str.charAt(i))+1);
+            }
+        }
+        System.out.println(map.values());
+    }
     public static void main(String[] args) {
         System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
@@ -156,6 +169,7 @@ public class Strings {
         permutations("ABC", "");
         System.out.println(isPalandrome("EYE"));
         System.out.println(isRotational("abcde", "deabc"));
+        ocChar("grass is greener on the other side");
     }
 
 }
