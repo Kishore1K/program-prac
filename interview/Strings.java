@@ -121,7 +121,30 @@ public class Strings {
         }
 
     }
+    // Java Program to determine whether a given string is palindrome
 
+    static boolean isPalandrome(String str){
+        for(int i=0;i<str.length(); i++){
+            if(str.charAt(i)!=str.charAt(str.length()-i-1)){
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    // Java Program to determine whether one string is a rotation of another
+
+    static boolean isRotational(String str1, String str2){
+        if(str1.length()!=str2.length()){
+            return false;
+        }else{
+            str1=str1.concat(str2);
+            
+            return str1.indexOf(str2)!=-1;
+        }
+    }
+    // Java Program to find maximum and minimum occurring character in a string
     public static void main(String[] args) {
         System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
@@ -131,6 +154,8 @@ public class Strings {
         subsetsString("KISHORE");
         System.out.println(longestRespatString("acbdfghybdf"));
         permutations("ABC", "");
+        System.out.println(isPalandrome("EYE"));
+        System.out.println(isRotational("abcde", "deabc"));
     }
 
 }
