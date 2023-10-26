@@ -66,6 +66,47 @@ public class Strings {
         System.out.println(Arrays.toString(eqString));
 
     }
+    // Java Program to find all subsets of a string
+    static void subsetsString(String str){
+        int len = str.length();
+        String s1[] = new String[len*(len+1)/2];
+        int temp=0;
+
+        for(int i=0; i<len; i++){
+            for(int j=i; j<len; j++){
+                s1[temp]=str.substring(i, j+1);
+                temp++;
+            }
+        }
+        System.out.println(Arrays.toString(s1));
+    }
+    // Java Program to find the longest repeating sequence in a string
+        //Checks for the largest common prefix  
+        static String lcp(String s, String t){
+            int n = Math.min(s.length(), t.length());
+            for(int i=0; i<n; i++){
+                if(s.charAt(i)!=t.charAt(i)){
+                    return s.substring(0, i);
+                }
+            }
+            return s.substring(0, n);
+        }
+    static String longestRespatString(String str){
+        String lrs="";
+        int length = str.length();
+
+        for(int i=0; i<length; i++){
+            for(int j=i+1; j<length; j++){
+                String x = lcp(str.substring(i, length), str.substring(j, length));
+                if(x.length()>lrs.length())
+                    lrs=x;
+                
+
+            }
+        }
+
+        return lrs;
+    }
 
     public static void main(String[] args) {
         System.out.println(countChar("The best of both worlds"));
@@ -73,6 +114,8 @@ public class Strings {
         countVandCon("This is a really simple sentence");
         System.out.println(isAnagram("bat", "abt"));
         divideString("aaaabbbbcccc", 3);
+        subsetsString("KISHORE");
+        System.out.println(longestRespatString("acbdfghybdf"));
     }
 
 }
