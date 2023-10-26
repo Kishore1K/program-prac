@@ -107,6 +107,20 @@ public class Strings {
 
         return lrs;
     }
+    // Java Program to find all the permutations of a string
+    static void permutations(String str, String ans){
+        int len = str.length();
+        if(len==0){
+            System.out.println(ans+ " ");
+            return;
+        }
+        for(int i=0; i<len; i++){
+            char ch = str.charAt(i);
+            String ros = str.substring(0, i)+str.substring(i+1);
+            permutations(ros, ans+ch);
+        }
+
+    }
 
     public static void main(String[] args) {
         System.out.println(countChar("The best of both worlds"));
@@ -116,6 +130,7 @@ public class Strings {
         divideString("aaaabbbbcccc", 3);
         subsetsString("KISHORE");
         System.out.println(longestRespatString("acbdfghybdf"));
+        permutations("ABC", "");
     }
 
 }
