@@ -50,12 +50,29 @@ public class Strings {
     }
 
     //  Java Program to divide a string in 'N' equal parts.
-    
+    static void divideString(String str, int n){
+        String eqString[] = new String[n];
+        int temp=0,chars = str.length()/n;
+
+        if(str.length()%n!=0){
+            System.out.println("Not divisble");
+        }
+        for(int i=0; i<str.length(); i+=chars){
+            String part = str.substring(i, i+chars);
+            eqString[temp]=part;
+            temp++;
+        }
+
+        System.out.println(Arrays.toString(eqString));
+
+    }
+
     public static void main(String[] args) {
         System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
         countVandCon("This is a really simple sentence");
         System.out.println(isAnagram("bat", "abt"));
+        divideString("aaaabbbbcccc", 3);
     }
 
 }
