@@ -297,6 +297,24 @@ public class Strings {
 
     }
     // Java Program to separate the Individual Characters from a String
+    static void countCharacters(String str){
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i)!=' '){
+                System.out.print(str.charAt(i)+" ");
+            }
+
+        }
+        System.out.println();
+    }
+
+    //  Java Program to swap two string variables without using third or temp variable.
+    static void swap2Strings(String str1, String str2){
+        System.out.println("String 1 = "+str1+" String 2 = "+str2);
+        str1 = str1+str2;
+        str2= str1.substring(0, (str1.length()-str2.length()));
+        str1=str1.substring(str2.length());
+        System.out.println("String 1 = "+str1+" String 2 = "+str2);
+    }
     public static void main(String[] args) throws IOException{
 /*      System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
@@ -314,6 +332,8 @@ public class Strings {
         largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
         mostRepeated();
         coutWords();
+        countCharacters("KISHORE K REDDY");
+        swap2Strings("Hello", "World");
     }
 
 
