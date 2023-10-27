@@ -158,8 +158,19 @@ public class Strings {
         }
         System.out.println(map.values());
     }
+    // Java Program to find Reverse of the string
+    static String revString(String str){
+        char []ch = str.toCharArray();
+        char temp;
+        for(int i=0;i<ch.length/2; i++ ){
+            temp = ch[i];
+            ch[i]= ch[ch.length-i-1];
+            ch[ch.length-i-1]=temp;
+        }
+        return String.valueOf(ch);
+    }
     public static void main(String[] args) {
-        System.out.println(countChar("The best of both worlds"));
+/*      System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
         countVandCon("This is a really simple sentence");
         System.out.println(isAnagram("bat", "abt"));
@@ -169,7 +180,9 @@ public class Strings {
         permutations("ABC", "");
         System.out.println(isPalandrome("EYE"));
         System.out.println(isRotational("abcde", "deabc"));
-        ocChar("grass is greener on the other side");
+        ocChar("grass is greener on the other side");*/  
+        System.out.println(revString("Kishore"));
     }
+
 
 }
