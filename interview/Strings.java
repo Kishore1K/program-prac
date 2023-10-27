@@ -315,6 +315,22 @@ public class Strings {
         str1=str1.substring(str2.length());
         System.out.println("String 1 = "+str1+" String 2 = "+str2);
     }
+    // Java Program to print smallest and biggest possible palindrome word in a given string
+    static void smallestAndBigPalandrome(String str){
+        String smallest, largest;
+        String []s = str.toLowerCase().split("\\s");
+        largest=smallest=s[0];
+        for(int i=0; i<s.length; i++){
+            if(isPalandrome(s[i])){
+                if(s[i].length()<smallest.length()){
+                    smallest=s[i];
+                }else if(s[i].length()>largest.length()){
+                    largest=s[i];
+                }
+            }
+        }
+        System.out.println("Largest Palandrome is = "+largest+" Smallest Plandrome is = "+smallest);
+    }
     public static void main(String[] args) throws IOException{
 /*      System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
@@ -334,6 +350,7 @@ public class Strings {
         coutWords();
         countCharacters("KISHORE K REDDY");
         swap2Strings("Hello", "World");
+        smallestAndBigPalandrome("Wow you own kayak");
     }
 
 
