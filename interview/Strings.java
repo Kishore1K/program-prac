@@ -1,5 +1,9 @@
 package DSA.interview;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class Strings {
@@ -236,7 +240,64 @@ public class Strings {
         System.out.println("Smalles Word is = "+smallest+ ", Largest Word is ="+largest);
 
     }
-    public static void main(String[] args) {
+    // Java Program to find the most repeated word in a text file
+    static void mostRepeated() throws IOException{
+        String line, word="";
+        int count=0, maxCount=0;
+
+        ArrayList<String> words = new ArrayList<>();
+
+        FileReader fileReader = new FileReader("DSA\\interview\\data.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        // Read Line
+        while((line=bufferedReader.readLine())!=null){
+            String []strings = line.toLowerCase().split("[,.\\s]+");
+            for(String s: strings){
+                words.add(s);
+            }
+        }
+
+        // Determine Most repated
+        for(int i=0; i<words.size(); i++){
+            count=1;
+            for(int j=i+1; j<words.size(); j++){
+                if(words.get(i).equals(words.get(j))){
+                    count++;
+                }
+            }
+            
+            if(count > maxCount){
+                maxCount=count;
+                word= words.get(i);
+            }
+        }
+        System.out.println("Most repated Word is = "+word);
+        bufferedReader.close();
+
+
+    }
+    //  Java Program to find the number of the words in the given text file
+    static void coutWords() throws IOException{
+        int count=0;
+        String line;
+        FileReader fileReader = new FileReader("DSA\\interview\\data.txt");
+        BufferedReader br = new BufferedReader(fileReader);
+        while((line =br.readLine())!=null){
+            String strings[] = line.split("[,.\\s]+"); 
+            for(String s : strings){
+                count++;
+
+            }
+
+        }
+        System.out.println("The number of words are = "+count);
+        br.close();
+        fileReader.close();
+
+    }
+    // Java Program to separate the Individual Characters from a String
+    public static void main(String[] args) throws IOException{
 /*      System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
         countVandCon("This is a really simple sentence");
@@ -251,6 +312,8 @@ public class Strings {
         System.out.println(revString("Kishore"));
         findDuplicateChar("Great responsibility");
         largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
+        mostRepeated();
+        coutWords();
     }
 
 
