@@ -1,8 +1,7 @@
 package DSA.interview;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class Arrays_prg {
     // Java Program to copy all elements of one array into another array

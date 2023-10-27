@@ -1,6 +1,5 @@
 package DSA.interview;
 
-import java.text.Collator;
 import java.util.*;
 
 public class Strings {
@@ -160,14 +159,57 @@ public class Strings {
     }
     // Java Program to find Reverse of the string
     static String revString(String str){
-        char []ch = str.toCharArray();
-        char temp;
-        for(int i=0;i<ch.length/2; i++ ){
-            temp = ch[i];
-            ch[i]= ch[ch.length-i-1];
-            ch[ch.length-i-1]=temp;
+        // char []ch = str.toCharArray();
+        // char temp;
+        // for(int i=0;i<ch.length/2; i++ ){
+        //     temp = ch[i];
+        //     ch[i]= ch[ch.length-i-1];
+        //     ch[ch.length-i-1]=temp;
+        // }
+        // return String.valueOf(ch);
+        // or
+        // StringBuilder sb = new StringBuilder();
+        String revString = "";
+        for(int i=str.length()-1; i>=0;i--){
+            // sb.append(str.charAt(i));
+            revString += str.charAt(i);
         }
-        return String.valueOf(ch);
+        return revString;
+    }
+    //  Java program to find the duplicate characters in a string
+    static void findDuplicateChar(String str){
+        // for(int i=0;i<str.length(); i++){
+        //     for(int j=i+1; j<str.length(); j++){
+        //         if(str.charAt(i)==str.charAt(j) && str.charAt(i)!=' ' ){
+        //             System.out.println(str.charAt(i));
+        //         }
+        //     }
+        // }
+
+        Map<Character , Integer> map = new  HashMap<>();
+        for(int i=0; i<str.length()-1; i++){
+            if(!map.containsKey(str.charAt(i)) && str.charAt(i)!=' '){
+                map.put(str.charAt(i), 1);
+            }else if(str.charAt(i)!=' '){
+                map.put(str.charAt(i), map.get(str.charAt(i))+1);
+            }
+        }
+        System.out.println(map);
+        // Iterator<Map.Entry<Character , Integer>> itr = map.entrySet().iterator();
+        // while(itr.hasNext()){
+        //     Map.Entry<Character, Integer> entry = itr.next();
+        //     if(entry.getValue()>1){
+        //         System.out.println(entry.getKey());
+        //     }
+        // }
+        // map.forEach((k, v)-> System.out.println(k+" = "+v));
+        for(Map.Entry<Character, Integer> entry: map.entrySet()){
+            if(entry.getValue()>1){
+                System.out.println(entry.getKey());
+            }
+        }
+
+        
     }
     public static void main(String[] args) {
 /*      System.out.println(countChar("The best of both worlds"));
@@ -182,6 +224,7 @@ public class Strings {
         System.out.println(isRotational("abcde", "deabc"));
         ocChar("grass is greener on the other side");*/  
         System.out.println(revString("Kishore"));
+        findDuplicateChar("Great responsibility");
     }
 
 
