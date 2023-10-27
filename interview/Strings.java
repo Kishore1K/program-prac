@@ -208,8 +208,33 @@ public class Strings {
                 System.out.println(entry.getKey());
             }
         }
+    }
+    // Java Program to find the largest and smallest word in a string.
+    static void largAndSmallest(String str){
+        String largest, smallest;
+        int len=0;
+        String word=" ";
+        String []s = new String[str.length()];
+        for(int i=0; i<str.length(); i++){ 
+            if(str.charAt(i)!=' '){
+                word+=str.charAt(i);
+            }else{
+                s[len]=word;
+                len++;
+                word="";
+            }
+        }
+        largest=smallest=s[0];
+        for(int k=0; k<len; k++){
+            if(s[k].length()<smallest.length()){
+                smallest=s[k];
+            }
+            if(s[k].length()>largest.length()){
+                largest=s[k];
+            }
+        }
+        System.out.println("Smalles Word is = "+smallest+ ", Largest Word is ="+largest);
 
-        
     }
     public static void main(String[] args) {
 /*      System.out.println(countChar("The best of both worlds"));
@@ -225,6 +250,7 @@ public class Strings {
         ocChar("grass is greener on the other side");*/  
         System.out.println(revString("Kishore"));
         findDuplicateChar("Great responsibility");
+        largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
     }
 
 
