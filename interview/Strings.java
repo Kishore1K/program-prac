@@ -331,8 +331,26 @@ public class Strings {
         }
         System.out.println("Largest Palandrome is = "+largest+" Smallest Plandrome is = "+smallest);
     }
+    // Reverse String in Java Word by Word
+        static String reverse(String str){
+            String str1="";
+            for(int i=str.length()-1; i>=0; i--){
+                str1+=str.charAt(i);
+            }
+            return str1;
+        }
+    static void revWord(String str){
+        String s[] = str.split("\\s");
+        String rev="";
+
+        for(int i=0; i<s.length; i++){
+            rev += reverse(s[i]);
+            rev +=" ";
+        }
+        System.out.println(rev);
+    }
     public static void main(String[] args) throws IOException{
-/*      System.out.println(countChar("The best of both worlds"));
+        System.out.println(countChar("The best of both worlds"));
         System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
         countVandCon("This is a really simple sentence");
         System.out.println(isAnagram("bat", "abt"));
@@ -342,7 +360,7 @@ public class Strings {
         permutations("ABC", "");
         System.out.println(isPalandrome("EYE"));
         System.out.println(isRotational("abcde", "deabc"));
-        ocChar("grass is greener on the other side");*/  
+        ocChar("grass is greener on the other side"); 
         System.out.println(revString("Kishore"));
         findDuplicateChar("Great responsibility");
         largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
@@ -351,6 +369,7 @@ public class Strings {
         countCharacters("KISHORE K REDDY");
         swap2Strings("Hello", "World");
         smallestAndBigPalandrome("Wow you own kayak");
+        revWord("Hello Kishore Karthick Reddy");
     }
 
 
