@@ -42,6 +42,21 @@ public class Conversion {
 
     }
     // Java Convert Decimal to Binary
+    static void decimal2bin(int dec){
+        // System.out.println(Integer.toBinaryString(dec));
+        int binary[]= new int[40];
+        int index=0;
+        while (dec>0) {
+            binary[index++]=dec%2;
+            dec/=2;
+            
+        }
+        for(int i=index-1; i>=0;i--){
+            System.out.print(binary[i]);
+        }
+        System.out.println();
+
+    }
 
 
     public static void main(String[] args)  throws Exception{
@@ -49,5 +64,6 @@ public class Conversion {
         int2String(100);
         string2Date("10/09/2001");
         bin2dec(1111);
+        decimal2bin(15);
     }
 }
