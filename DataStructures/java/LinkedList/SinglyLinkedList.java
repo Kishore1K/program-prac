@@ -98,7 +98,41 @@ public class SinglyLinkedList {
         }
         return ;
     }
-
+    void insertBegining(SinglyLinkedList list, int data){
+        Node newNode = new Node(data);
+        if(list.head==null){
+            list.head=newNode;
+            return ;
+        }
+        Node temp=list.head;
+        newNode.next=temp;
+        list.head=newNode;
+        return ;
+    }
+    void insertEnd(SinglyLinkedList list, int data){
+        Node newNode = new Node(data);
+        if(list.head==null){
+            list.head=newNode;
+            return ;
+        }
+        Node curNode = list.head;
+        while(curNode.next!=null){
+            curNode=curNode.next;
+        }
+        curNode.next=newNode;
+        return;
+    }
+    void insertAtKey(SinglyLinkedList list,int data, int key){
+        Node newNode = new Node(data), curNode=list.head, prev=null;
+        while (curNode.data!=key) {
+            curNode=curNode.next;
+            
+        }
+        // prev.next=newNode;
+        newNode.next=curNode.next;
+        curNode.next=newNode;
+        return;
+    }
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         linkedList = linkedList.insert(linkedList, 10);
@@ -107,17 +141,24 @@ public class SinglyLinkedList {
         linkedList = linkedList.insert(linkedList, 50);
         linkedList = linkedList.insert(linkedList, 80);
         linkedList.printLL(linkedList);
-        linkedList.countLL(linkedList);
-        // linkedList.reverseLL(linkedList.head);
+        linkedList.insertBegining(linkedList, 100);
+        linkedList.insertBegining(linkedList, 200);
         linkedList.printLL(linkedList);
-        // // linkedList.deleteNodeAtBegining(linkedList);
-        // // linkedList.printLL(linkedList);
-        linkedList.deleteNodeAtBegining(linkedList);
+        linkedList.insertEnd(linkedList, 500);
         linkedList.printLL(linkedList);
-        linkedList.deleteNodeAtEnd(linkedList);
+        linkedList.insertAtKey(linkedList, 25, 20);
         linkedList.printLL(linkedList);
-        linkedList.deleteAtMiddel(linkedList);
-        linkedList.printLL(linkedList);
+        // linkedList.countLL(linkedList);
+        // // linkedList.reverseLL(linkedList.head);
+        // linkedList.printLL(linkedList);
+        // // // linkedList.deleteNodeAtBegining(linkedList);
+        // // // linkedList.printLL(linkedList);
+        // linkedList.deleteNodeAtBegining(linkedList);
+        // linkedList.printLL(linkedList);
+        // linkedList.deleteNodeAtEnd(linkedList);
+        // linkedList.printLL(linkedList);
+        // linkedList.deleteAtMiddel(linkedList);
+        // linkedList.printLL(linkedList);
 
 
     }
