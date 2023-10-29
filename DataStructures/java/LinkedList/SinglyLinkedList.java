@@ -174,7 +174,19 @@ public class SinglyLinkedList {
             revNode=revNode.next;
         }
         return true;
-        
+    }
+    void serachSLL(Node curNode, int key){
+        if(curNode==null){
+            System.out.println("No elemnt is Found");
+            return ;
+        }
+        while (curNode!=null) {
+            if(curNode.data==key){
+                System.out.println(curNode.data + " is Present");
+                return;
+            }
+            curNode=curNode.next;
+        }
 
     }
     public static void main(String[] args) {
@@ -212,7 +224,8 @@ public class SinglyLinkedList {
         linkedList.insert(linkedList, 2);
         linkedList.insert(linkedList, 1);
         linkedList.printLL(linkedList);
-        System.out.println(linkedList.isPalandrome(linkedList));
+        // System.out.println(linkedList.isPalandrome(linkedList));
+        linkedList.serachSLL(linkedList.head, 2);
 
 
     }
