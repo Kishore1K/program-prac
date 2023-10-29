@@ -32,12 +32,63 @@ public class LinkedList {
     public static void printList(LinkedList list){
         Node curNode=list.head;
 
+
         while(curNode!=null){
             System.out.print(curNode.data+"\t");
             curNode=curNode.next;
         }
         System.out.println();
 
+    }
+    public static LinkedList deleteByKey(LinkedList list , int key){
+        Node curNode=list.head, prev = null;
+
+        if(curNode==null){
+            System.out.println("List is empty so we cant delete");
+        }
+        if(curNode!=null && curNode.data==key){
+            System.out.println(key + " deleted");
+            list.head= curNode.next;
+            return list;
+        }else{
+            
+        }
+        while (curNode.data!=key) {
+            prev = curNode;
+            curNode=curNode.next;
+        }
+        prev.next = curNode.next;
+        System.out.println(key+" deleted");
+
+
+        return list;
+    }
+    public static LinkedList deletePosition(LinkedList list, int index){
+        int count=0;
+        Node curNode=list.head, prev=null;
+        if(curNode==null){
+            System.out.println("List is empty !");
+        }
+
+        if(index==0 && curNode!=null){
+            list.head=curNode.next;
+            System.out.println(index+" pos elem is deleted");
+        }
+        else{
+        while(curNode!=null){
+            if(count==index){
+                prev.next=curNode.next;
+                System.out.println(index+" pos elemet is deleted");
+                break;
+            }
+            prev = curNode;
+            curNode=curNode.next;
+            count++;
+        }
+        }
+
+        return list;
+            
     }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
@@ -49,6 +100,30 @@ public class LinkedList {
         list = insert(list, 60);
 
         printList(list);
+        list = deleteByKey(list, 40);
+        printList(list);
+        list = deleteByKey(list, 10);
+        printList(list);
+        list = deleteByKey(list, 60);
+        printList(list);
+
+        list = insert(list, 12);
+        list = insert(list, 13);
+        list = insert(list, 14);
+        list = insert(list, 15);
+        list = insert(list, 16);
+
+        printList(list);
+
+        list=deletePosition(list, 3);
+        printList(list);
+        list=deletePosition(list, 0);
+        printList(list);
+        list=deletePosition(list, 3);
+        printList(list);
+
+        
+        
     }
     
 }
