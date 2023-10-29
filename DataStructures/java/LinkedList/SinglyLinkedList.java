@@ -123,7 +123,7 @@ public class SinglyLinkedList {
         return;
     }
     void insertAtKey(SinglyLinkedList list,int data, int key){
-        Node newNode = new Node(data), curNode=list.head, prev=null;
+        Node newNode = new Node(data), curNode=list.head;
         while (curNode.data!=key) {
             curNode=curNode.next;
             
@@ -133,12 +133,11 @@ public class SinglyLinkedList {
         curNode.next=newNode;
         return;
     }
-    void printLR(SinglyLinkedList list){
-        if(list.head==null){
+    void printLR(Node curNode){
+        if(curNode==null){
             System.out.println("List is empty");
             return;
         }
-        Node curNode=list.head;
         while(curNode!=null){
             System.out.print(curNode.data+"\t");
             curNode=curNode.next;
@@ -153,9 +152,34 @@ public class SinglyLinkedList {
         printRL(curNode.next);
         System.out.print(curNode.data+"\t");
     }
+    Node reverseSLL(Node curNode){
+        Node prev=null, next=null;
+        while(curNode!=null){
+            next=curNode.next;
+            curNode.next=prev;
+            prev=curNode;
+            curNode=next;
+        }
+        return prev;
+    }
+    boolean isPalandrome(SinglyLinkedList list){
+        Node curNode=list.head;
+        Node revNode = reverseSLL(list.head);
+
+        while(curNode!=null && revNode!=null){
+            if(curNode.data!=revNode.data){
+                return false;
+            }
+            curNode=curNode.next;
+            revNode=revNode.next;
+        }
+        return true;
+        
+
+    }
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
-        linkedList = linkedList.insert(linkedList, 10);
+        /*        linkedList = linkedList.insert(linkedList, 10);
         linkedList = linkedList.insert(linkedList, 30);
         linkedList = linkedList.insert(linkedList, 20);
         linkedList = linkedList.insert(linkedList, 50);
@@ -167,20 +191,28 @@ public class SinglyLinkedList {
         linkedList.insertEnd(linkedList, 500);
         linkedList.printLL(linkedList);
         linkedList.insertAtKey(linkedList, 25, 20);
-        // linkedList.printLL(linkedList);
-        linkedList.printLR(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.printLR(linkedList.head);
         linkedList.printRL(linkedList.head);
-        // linkedList.countLL(linkedList);
-        // // linkedList.reverseLL(linkedList.head);
-        // linkedList.printLL(linkedList);
-        // // // linkedList.deleteNodeAtBegining(linkedList);
-        // // // linkedList.printLL(linkedList);
-        // linkedList.deleteNodeAtBegining(linkedList);
-        // linkedList.printLL(linkedList);
-        // linkedList.deleteNodeAtEnd(linkedList);
-        // linkedList.printLL(linkedList);
-        // linkedList.deleteAtMiddel(linkedList);
-        // linkedList.printLL(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.countLL(linkedList);
+        linkedList.reverseLL(linkedList.head);
+        linkedList.printLL(linkedList);
+        linkedList.deleteNodeAtBegining(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.deleteNodeAtBegining(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.deleteNodeAtEnd(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.deleteAtMiddel(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.printLR(linkedList.reverseSLL(linkedList.head)); */
+
+        linkedList.insert(linkedList, 1);
+        linkedList.insert(linkedList, 2);
+        linkedList.insert(linkedList, 1);
+        linkedList.printLL(linkedList);
+        System.out.println(linkedList.isPalandrome(linkedList));
 
 
     }
