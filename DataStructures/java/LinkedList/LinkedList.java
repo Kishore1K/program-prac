@@ -50,8 +50,6 @@ public class LinkedList {
             System.out.println(key + " deleted");
             list.head= curNode.next;
             return list;
-        }else{
-            
         }
         while (curNode.data!=key) {
             prev = curNode;
@@ -90,16 +88,34 @@ public class LinkedList {
         return list;
             
     }
+
+    public static int count(LinkedList list){
+        Node curNode=list.head;
+        int count=0;
+        if(curNode==null){
+            System.out.println("List Contains "+count+" nodes");
+            return 0;
+        }
+        while (curNode!=null) {
+            count++;
+            curNode=curNode.next;
+            
+        }
+        System.out.println("List Contains "+count+" nodes");
+        return count;
+
+    }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        count(list);
         list= insert(list, 10);
         list = insert(list, 20);
         list = insert(list, 30);
         list = insert(list, 40);
         list = insert(list, 50);
         list = insert(list, 60);
-
-        printList(list);
+        printList(list);    
+        count(list);
         list = deleteByKey(list, 40);
         printList(list);
         list = deleteByKey(list, 10);
@@ -114,13 +130,14 @@ public class LinkedList {
         list = insert(list, 16);
 
         printList(list);
-
+        count(list);
         list=deletePosition(list, 3);
         printList(list);
         list=deletePosition(list, 0);
         printList(list);
         list=deletePosition(list, 3);
         printList(list);
+        count(list);
 
         
         
