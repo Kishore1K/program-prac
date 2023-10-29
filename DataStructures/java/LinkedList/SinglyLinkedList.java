@@ -30,6 +30,32 @@ public class SinglyLinkedList {
             System.out.print(curNode.data+"\t");
             curNode=curNode.next;
         }
+        System.out.println();
+    }
+    // count number of nodes
+    public int countLL(SinglyLinkedList list){
+        int count=0;
+        Node curNode=list.head;
+        while (curNode!=null) {
+            count++;
+            curNode=curNode.next;
+        }
+        System.out.println("Linked List contains = "+count);
+        return count;
+    }
+    // display it in reverse order
+    public void reverseLL(Node curNode){
+
+        while (curNode.next==null) {
+            System.out.print(curNode.data+ "\t");
+            return;
+            
+        }
+        reverseLL(curNode.next);
+        System.out.print(curNode.data+"\t");
+
+
+
     }
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
@@ -39,6 +65,8 @@ public class SinglyLinkedList {
         linkedList = linkedList.insert(linkedList, 50);
         linkedList = linkedList.insert(linkedList, 80);
         linkedList.printLL(linkedList);
+        linkedList.countLL(linkedList);
+        linkedList.reverseLL(linkedList.head);
         
     }
 }
