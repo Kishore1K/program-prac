@@ -133,6 +133,26 @@ public class SinglyLinkedList {
         curNode.next=newNode;
         return;
     }
+    void printLR(SinglyLinkedList list){
+        if(list.head==null){
+            System.out.println("List is empty");
+            return;
+        }
+        Node curNode=list.head;
+        while(curNode!=null){
+            System.out.print(curNode.data+"\t");
+            curNode=curNode.next;
+        }
+        System.out.println();
+    }
+    void printRL(Node curNode){
+        while (curNode.next==null) {
+            System.out.print(curNode.data+"\t");
+            return;
+        }
+        printRL(curNode.next);
+        System.out.print(curNode.data+"\t");
+    }
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         linkedList = linkedList.insert(linkedList, 10);
@@ -147,7 +167,9 @@ public class SinglyLinkedList {
         linkedList.insertEnd(linkedList, 500);
         linkedList.printLL(linkedList);
         linkedList.insertAtKey(linkedList, 25, 20);
-        linkedList.printLL(linkedList);
+        // linkedList.printLL(linkedList);
+        linkedList.printLR(linkedList);
+        linkedList.printRL(linkedList.head);
         // linkedList.countLL(linkedList);
         // // linkedList.reverseLL(linkedList.head);
         // linkedList.printLL(linkedList);
