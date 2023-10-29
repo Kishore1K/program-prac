@@ -189,6 +189,28 @@ public class SinglyLinkedList {
         }
 
     }
+    void removeDuplicate(Node curNode){
+        Node temp=null,index=null;
+        if(curNode==null){
+            return;
+        }
+        while(curNode!=null){
+            temp=curNode;
+            index=curNode.next;
+            while (index!=null) {
+                if(curNode.data==index.data){
+                    temp.next=index.next;
+                }else{
+                    temp=index;
+                }
+                index=index.next;
+                
+            }
+            curNode=curNode.next;
+
+        }
+
+    }
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         /*        linkedList = linkedList.insert(linkedList, 10);
@@ -226,6 +248,8 @@ public class SinglyLinkedList {
         linkedList.printLL(linkedList);
         // System.out.println(linkedList.isPalandrome(linkedList));
         linkedList.serachSLL(linkedList.head, 2);
+        linkedList.removeDuplicate(linkedList.head);
+        linkedList.printLL(linkedList);
 
 
     }
