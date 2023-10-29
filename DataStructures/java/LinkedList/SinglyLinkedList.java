@@ -45,18 +45,60 @@ public class SinglyLinkedList {
     }
     // display it in reverse order
     public void reverseLL(Node curNode){
-
         while (curNode.next==null) {
             System.out.print(curNode.data+ "\t");
             return;
-            
         }
         reverseLL(curNode.next);
-        System.out.print(curNode.data+"\t");
+        System.out.print(curNode.data+"\t");   
+    }
+    // Java program to delete a node from the beginning of the singly linked list
+    public SinglyLinkedList deleteNodeAtBegining(SinglyLinkedList list){
+        Node curNode=list.head;
+        if(curNode==null){
+            System.out.println("List is empty");
+            return list;
+        }
+        System.out.println(curNode.data+" is deleted");
 
-
+        list.head=curNode.next;
+        return list;
 
     }
+
+    public void deleteNodeAtEnd(SinglyLinkedList list){
+        Node curNode=list.head, prev=null;
+        if(curNode==null){
+            System.out.println("List is empty");
+            return ;
+        }
+        while(curNode.next!=null){
+            prev=curNode;
+            curNode=curNode.next;
+        }
+        System.out.println(curNode.data+" is deleted");
+        prev.next=curNode.next;
+        return ;
+    }
+    void deleteAtMiddel(SinglyLinkedList list){
+        int count = countLL(list);
+        int key = count%2==0?(count/2): (count+1)/2;
+        int temp=0;
+        Node  curNode=list.head, prev=null;
+        while(curNode!=null){
+            if(temp==key){
+                System.out.println(curNode.data+" is deleted");
+
+                prev.next=curNode.next;
+                return ;
+            }
+            prev = curNode;
+            curNode=curNode.next;
+            temp++;
+        }
+        return ;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         linkedList = linkedList.insert(linkedList, 10);
@@ -66,7 +108,17 @@ public class SinglyLinkedList {
         linkedList = linkedList.insert(linkedList, 80);
         linkedList.printLL(linkedList);
         linkedList.countLL(linkedList);
-        linkedList.reverseLL(linkedList.head);
-        
+        // linkedList.reverseLL(linkedList.head);
+        linkedList.printLL(linkedList);
+        // // linkedList.deleteNodeAtBegining(linkedList);
+        // // linkedList.printLL(linkedList);
+        linkedList.deleteNodeAtBegining(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.deleteNodeAtEnd(linkedList);
+        linkedList.printLL(linkedList);
+        linkedList.deleteAtMiddel(linkedList);
+        linkedList.printLL(linkedList);
+
+
     }
 }
