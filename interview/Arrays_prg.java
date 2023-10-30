@@ -1,7 +1,7 @@
 package DSA.interview;
 
 import java.util.Arrays;
-
+import java.util.HashMap;
 
 public class Arrays_prg {
     // Java Program to copy all elements of one array into another array
@@ -248,28 +248,44 @@ public class Arrays_prg {
             }
         }
     }
+
+    static int[] twoSum(int arr[], int target){
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0; i<arr.length; i++){
+            int diff = (target-arr[i]);
+            if(map.containsKey(diff)){
+                int returnSet[] = {map.get(diff)+1, i+1};
+                return returnSet;
+            }
+            map.put(arr[i], i);
+
+        }
+        return null;
+    }
     
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(copyArray(new int[]{1,2,3,4,5,6})));
-        freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
-        System.out.println(Arrays.toString(arrLeftRotate(new int[]{1,2,3,4,5,6}, 2)));
-        printArray(rightRotate(new int[]{1,2,3,4,5,6}, 2));
+        // freqOfElem(new int[]{1,2,3,1,5,7,2,5,2,8,1,5,3,2});
+        // System.out.println(Arrays.toString(arrLeftRotate(new int[]{1,2,3,4,5,6}, 2)));
+        // printArray(rightRotate(new int[]{1,2,3,4,5,6}, 2));
 
-        printDuplicate(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
-        printArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
-        // reverse
-        printArray(revArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8}));
-        printArrayEven(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
-        // odd
-        printArrayOdd(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
-        System.out.println(largestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
-        System.out.println(smallestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
-        System.out.println(sumElements(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
-        printArray(ascendingSort(new int[]{2,6,1,5,9,4,7}));
-        printArray(descendingSort(new int[]{2,6,1,5,9,4,7}));
-        System.out.println(thirdLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
-        System.out.println(secLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
-        System.out.println(secSmallest(new int[]{2,6,1,5,-1,9,4,7, 8, 100}));
-        printOddEven(new int[]{2,6,1,5,-1,9,4,7, 8, 100});
+        // printDuplicate(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // printArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // // reverse
+        // printArray(revArray(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8}));
+        // printArrayEven(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // // odd
+        // printArrayOdd(new int[]{1, 2, 3, 4, 2, 7, 8, 8, 3, 8});
+        // System.out.println(largestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
+        // System.out.println(smallestElement(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
+        // System.out.println(sumElements(new int[]{7,3,5,2,8,11,0,2,56,112,5,-1}));
+        // printArray(ascendingSort(new int[]{2,6,1,5,9,4,7}));
+        // printArray(descendingSort(new int[]{2,6,1,5,9,4,7}));
+        // System.out.println(thirdLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
+        // System.out.println(secLargest(new int[]{2,6,1,5,9,4,7, 8, 100}));
+        // System.out.println(secSmallest(new int[]{2,6,1,5,-1,9,4,7, 8, 100}));
+        // printOddEven(new int[]{2,6,1,5,-1,9,4,7, 8, 100});
+        System.out.println(Arrays.toString(twoSum(new int[]{4,5,6,1,3}, 7)));
     }
 }
