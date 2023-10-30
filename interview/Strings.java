@@ -348,27 +348,40 @@ public class Strings {
         }
         System.out.println(rev);
     }
+
+    static void permutationsOfString(String str1, String str2){
+        if(str1.length()==0){
+            System.out.print(str2+"\t");
+            return ;
+        }
+        for(int i=0; i<str1.length(); i++){
+            char ch = str1.charAt(i);
+            String str3 = str1.substring(0, i)+str1.substring(i+1);
+            permutations(str3, str2+ch);
+        }
+    }
     public static void main(String[] args) throws IOException{
-        System.out.println(countChar("The best of both worlds"));
-        System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
-        countVandCon("This is a really simple sentence");
-        System.out.println(isAnagram("bat", "abt"));
-        divideString("aaaabbbbcccc", 3);
-        subsetsString("KISHORE");
-        System.out.println(longestRespatString("acbdfghybdf"));
-        permutations("ABC", "");
-        System.out.println(isPalandrome("EYE"));
-        System.out.println(isRotational("abcde", "deabc"));
-        ocChar("grass is greener on the other side"); 
-        System.out.println(revString("Kishore"));
-        findDuplicateChar("Great responsibility");
-        largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
-        mostRepeated();
-        coutWords();
-        countCharacters("KISHORE K REDDY");
-        swap2Strings("Hello", "World");
-        smallestAndBigPalandrome("Wow you own kayak");
-        revWord("Hello Kishore Karthick Reddy");
+        // System.out.println(countChar("The best of both worlds"));
+        // System.out.println(countPunctuations("He said, 'The mailman loves you.' I heard it with my own ears."));
+        // countVandCon("This is a really simple sentence");
+        // System.out.println(isAnagram("bat", "abt"));
+        // divideString("aaaabbbbcccc", 3);
+        // subsetsString("KISHORE");
+        // System.out.println(longestRespatString("acbdfghybdf"));
+        // permutations("ABC", "");
+        // System.out.println(isPalandrome("EYE"));
+        // System.out.println(isRotational("abcde", "deabc"));
+        // ocChar("grass is greener on the other side"); 
+        // System.out.println(revString("Kishore"));
+        // findDuplicateChar("Great responsibility");
+        // largAndSmallest("Hardships often prepare ordinary people for an extraordinary destiny");
+        // mostRepeated();
+        // coutWords();
+        // countCharacters("KISHORE K REDDY");
+        // swap2Strings("Hello", "World");
+        // smallestAndBigPalandrome("Wow you own kayak");
+        // revWord("Hello Kishore Karthick Reddy");
+        permutationsOfString("cat", "");
     }
 
 
