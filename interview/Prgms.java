@@ -1,5 +1,7 @@
 package DSA.interview;
 
+import java.util.HashSet;
+
 public class Prgms {
     // Write a program in Java to generate the Nth Fibonacci Number using Iteration and Constant Space.
     static void Fibonacci(int num){
@@ -36,11 +38,29 @@ public class Prgms {
         }
         System.out.println(count);
     }
-    //  Write a Java Program to calculate xn (x to the power n) using Recursion. 
-    //  You can use O(N) time but can’t use any extra space apart from the Recursion Call Stack Space.
+    /*8. Write a program to print all the unique characters in a String. 
+    For instance, if the input string is “abcb”, the output will be the characters ‘a’ and ‘c’ as they are unique. The character ‘b’ repeats twice and so it will not be printed.
+ */
+    static void uniqueChar(String str){
+        HashSet<Character> unique = new HashSet<>();
+        for(int i=0; i<str.length(); i++){
+            char ch= str.charAt(i);
+            if(unique.contains(ch)==true){
+                unique.remove(ch);
+            }else{
+                unique.add(ch);
+            }
+        }
+        if(unique.isEmpty()){
+            System.out.println("There is no unique Characters");
+        }else{
+            System.out.println(unique);
+        }
+    }
     public static void main(String[] args) {
         Fibonacci(7);
         countDigits(12345);
         countDigits(142311, 1);
+        uniqueChar("ababa");
     }
 }
