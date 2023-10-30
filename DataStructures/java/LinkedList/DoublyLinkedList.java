@@ -36,29 +36,56 @@ public class DoublyLinkedList {
         }
     }
     void insertAtPos(int data, int pos){
-        if(pos==0){
+        Node newNode = new Node(data);
+        if(pos==1){
             insertAtBegining(data);
         }else{
-            Node newNode = new Node(data);
-            Node curNode=head;
+            Node curNode = head;
             int count=1;
-            while (curNode != null && count < pos) {
+
+            while (curNode!=null && count<pos) {
                 curNode=curNode.next;
                 count++;
             }
             if(curNode==null){
                 insertAtEnd(data);
             }
-            newNode.next=curNode;
-            newNode.prev=curNode.prev;
-            curNode.prev.next=newNode;
-            curNode.next=newNode;
+            else{
+                newNode.next=curNode;
+                newNode.prev=curNode.prev;
+                curNode.prev.next=newNode;
+                curNode.prev=newNode;
+            }
+        }        
+    }
+    void printForward(){
+        Node curNode=head;
+        while (curNode!=null) {
+            System.out.print(curNode.data+"\t");
+            curNode=curNode.next;  
+        }
+        System.out.println();
+    }
+
+    void printBackward(){
+        Node curNode=tail;
+        while (curNode!=null) {
+            System.out.print(curNode.data+"\t");
+            curNode=curNode.prev;
         }
     }
     public static void main(String[] args) {
     DoublyLinkedList linkedList = new DoublyLinkedList();
     linkedList.insertAtBegining(100);
-    
+    linkedList.insertAtBegining(200);
+    linkedList.insertAtBegining(300);
+    linkedList.printForward();
+    linkedList.insertAtEnd(400);
+    linkedList.insertAtEnd(500);
+    linkedList.printForward();
+    linkedList.insertAtPos(250, 3);
+    linkedList.printForward();
+    linkedList.printBackward();
 
 
     }
