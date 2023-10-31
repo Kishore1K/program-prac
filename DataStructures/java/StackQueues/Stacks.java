@@ -43,6 +43,12 @@ public class Stacks {
     boolean isEmpty(){
         return top==-1;
     }
+    void size(){
+        System.out.println("Stack has "+(top+1)+" Elements");
+    }
+    void peek(){
+        System.out.println(arr[top]);
+    }
     public static void main(String[] args) {
         Stacks stacks = new Stacks(5);
         stacks.push(20);
@@ -56,7 +62,8 @@ public class Stacks {
         stacks.print();
         stacks.push(24);
         stacks.print();
-
+        stacks.size();
+        stacks.peek();
         
     }
     
