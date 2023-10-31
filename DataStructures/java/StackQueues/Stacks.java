@@ -15,7 +15,7 @@ public class Stacks {
     }
 
     void push(int data){
-        if(top==cap){
+        if(isFull()){
             System.out.println("Stack OverFlow");
             return;
         }
@@ -23,11 +23,25 @@ public class Stacks {
         arr[top]=data;
 
     }
-    void print(int arr[]){
-        for(int i=arr.length-1; i>=0; i--){
+    void print(){
+        for(int i=top; i>=0; i--){
             System.out.print(arr[i]+"\t");
         }
         System.out.println();
+    }
+    void pop(){
+        if(isEmpty()){
+            System.out.println("Stack Under Flow");
+            return;
+        }
+        System.out.println(arr[top]+" is Poped From Stack");
+        top--;
+    }
+    boolean isFull(){
+        return top==cap-1;
+    }
+    boolean isEmpty(){
+        return top==-1;
     }
     public static void main(String[] args) {
         Stacks stacks = new Stacks(5);
@@ -37,8 +51,13 @@ public class Stacks {
         stacks.push(50);
         stacks.push(60);
 
-        stacks.print(stacks.arr);
+        stacks.print();
+        stacks.pop();
+        stacks.print();
+        stacks.push(24);
+        stacks.print();
 
         
     }
+    
 }
