@@ -57,7 +57,7 @@ class LinkedList:
             curNode=curNode.next
         prev.next=None
         print(curNode.data, "is Deleted")
-    def delAtMiddel(self, pos):
+    def delAtPos(self, pos):
         curNode=self.head
         count=1
         while curNode.next!=None:
@@ -67,7 +67,6 @@ class LinkedList:
             prev = curNode
             curNode=curNode.next
             count+=1
-    
         
 
 llist = LinkedList()
@@ -80,7 +79,7 @@ llist.insertAtPos(25, 2)
 llist.printList()
 # llist.delAtBegining()
 # llist.delAtEnd()
-llist.delAtMiddel(3)
+llist.delAtPos(3)
 llist.printList()
     
 
