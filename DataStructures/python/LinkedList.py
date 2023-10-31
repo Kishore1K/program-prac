@@ -44,8 +44,31 @@ class LinkedList:
                 cur_node.next=new_node
             cur_node = cur_node.next
             count+=1
-        
+    def delAtBegining(self):
+        if self.head==None:
+            print("List is Empty")
+        curNode = self.head
+        self.head=self.head.next
+        print(curNode.data, "is Deleted")
+    def delAtEnd(self):
+        curNode=self.head
+        while curNode.next!=None:
+            prev = curNode
+            curNode=curNode.next
+        prev.next=None
+        print(curNode.data, "is Deleted")
+    def delAtMiddel(self, pos):
+        curNode=self.head
+        count=1
+        while curNode.next!=None:
+            if(pos==count+1):
+                prev.next=curNode.next
+                print(curNode.data," is Deleted")
+            prev = curNode
+            curNode=curNode.next
+            count+=1
     
+        
 
 llist = LinkedList()
 llist.insertAtBegining(10)
@@ -54,6 +77,10 @@ llist.insertAtEnd(30)
 llist.insertAtEnd(40)
 llist.printList()
 llist.insertAtPos(25, 2)
+llist.printList()
+# llist.delAtBegining()
+# llist.delAtEnd()
+llist.delAtMiddel(3)
 llist.printList()
     
 
