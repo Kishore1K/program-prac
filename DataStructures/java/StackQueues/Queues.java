@@ -21,6 +21,7 @@ public class Queues {
     void enqueue(int data){
         if(isFull()){
             System.out.println("OverFlow");
+            return;
         }
         if(front==-1 && rear==-1){
             front=0;
@@ -30,10 +31,24 @@ public class Queues {
     }
 
     void print(){
-        for(int i=front;i<rear;i++){
+        for(int i=front;i<=rear;i++){
             System.out.print(arr[i]+"\t");
         }
         System.out.println();
+    }
+
+    void dequeue(){
+        if(isEmpty()){
+            System.out.println("Queue is Empty");
+            return ;
+        }else{
+            if(front>rear){
+                front=rear=-1;
+            }else{
+                front++;
+            }
+        }
+        System.out.println(arr[front]+" is Dequeued From the Queue");
     }
 
     public static void main(String[] args) {
@@ -43,5 +58,14 @@ public class Queues {
         queues.enqueue(30);
         queues.enqueue(40);
         queues.print();
+        queues.enqueue(50);
+        queues.print();
+        queues.enqueue(60);
+        queues.dequeue();
+        queues.print();
+        queues.dequeue();
+        queues.print();
+
+
     }
 }
