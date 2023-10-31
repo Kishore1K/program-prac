@@ -31,13 +31,29 @@ class LinkedList:
             while temp!=None:
                 print(temp.data, sep=",", end="\t")
                 temp=temp.next
-
+        print()
+    def insertAtPos(self, data, pos):
+        new_node = Node(data)
+        if pos==1:
+            self.insertAtBegining(data)
+        cur_node = self.head
+        count=1
+        while cur_node!=None:
+            if(pos==count+1):
+                new_node.next=cur_node.next
+                cur_node.next=new_node
+            cur_node = cur_node.next
+            count+=1
+        
+    
 
 llist = LinkedList()
 llist.insertAtBegining(10)
 llist.insertAtBegining(20)
 llist.insertAtEnd(30)
 llist.insertAtEnd(40)
+llist.printList()
+llist.insertAtPos(25, 2)
 llist.printList()
     
 
