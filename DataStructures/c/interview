@@ -1,5 +1,6 @@
 #include<stdio.h>
-
+#include<math.h>
+// C program to find factorial of a number.
 int factorial(int n){
     int fact=1;
     for(int i=1; i<=n; i++){
@@ -13,7 +14,102 @@ int factorial1(int n){
     }
     return n*factorial1(n-1);
 }
+// Swapping two bits of a byte using C program
+void swapBits(unsigned char data){
+    unsigned char bit_1 = (data >> 1)&1;
+    unsigned char bit_2 = (data>>2)&1;
+    unsigned char xor_of_bits = bit_1^bit_2;
+    printf("Swapping of Bits after %2X\n", data ^ (bit_1 << 1 | bit_1 <<2));
+}
+
+// Program to swap two words/nibbles of a byte.
+void swapWords(unsigned int data){
+    data = ((data << 8) & 0xff00 | ((data >> 8) & 0x00ff));
+    printf("Swapping of Words after %04X\n", data);
+}
+
+// C program to swap two numbers without using third variable.
+void swapNumbers(int a, int b){
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("After swap A = %d \t B = %d \n",a, b);
+    a = a+b;
+    b = a-b;
+    b = a-b;
+    printf("After swap A = %d \t B = %d \n",a, b);
+    a = a*b;
+    b = a/b;
+    a = a/b;
+    printf("After swap A = %d \t B = %d \n",a, b);
+    a = a^b;
+    b = a^b;
+    a = a^b;
+    printf("After swap A = %d \t B = %d \n",a, b);
+    a = a+b - (b=a);
+    printf("After swap A = %d \t B = %d \n",a, b);
+}
+
+// Program to reverse  number 
+int reverseNum(int data){
+    int rev=0, rem;
+    while(data > 0){
+        rem = data%10;
+        rev*=10+rem;
+        data/=10;
+    }
+    return rev;
+}
+// Program to check whether number is Perfect square or not
+void perfectSquare(int num){
+    int iVal;
+    float fVal;
+
+    fVal = sqrt(num);
+    iVal = (int) fVal;
+    if(iVal==fVal){
+        printf("%d is A perfect Square\n");
+    }else{
+        printf("%d is Not a perfect Square\n");
+    }
+}
+// Program to print "Hello World" without using semicolon.
+
+void HelloWorld(){
+    if(!printf("HelloWorld")){
+        ;
+    }else{
+        printf("Bye");
+    }
+}
+
+// Program to check whether number is palindrome or not.
+
+// C program to check whether a number if Armstrong or not.
+
+// C program to check whether a given number is EVEN or ODD
+
+// C program to print all leap years from 1 to N.
+
+// C program to convert temperature from Celsius to Fahrenheit and vice versa.
+
+// C program to convert number from Decimal to Binary.
+
+// C program to convert number from Binary to Decimal.
+// Program to compare two strings without using strcmp().
+// Program to copy string without sing strcpy().
+// C program to find a number from array elements
+// C program to delete given element from one dimensional array
+// Program to swap adjacent elements of one dimension array.
+// Program to transpose a matrix.
+// C program to find multiplication of two matrices
+// Program to print source code as program output.
 
 void main(){
     printf("%d", factorial(5));
+    swapping(0x0C);
+    swapWords(0x1234);
+    swapNumbers(10,20);
+    printf("Reverse Number is = %d\n", reverseNum(123));
+
 }
