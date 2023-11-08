@@ -219,10 +219,13 @@ void findElem(int arr[], int item){
 
 // C program to delete given element from one dimensional array
 void deleteElement(int arr[], int elem){
+    int count=0;
     int n = sizeof(arr)/sizeof(arr[0]);
     for(int i=0; i<n; i++){
         if(arr[i]==elem){
-            arr[i]=arr[i+1];
+            count++;
+            for(int j=i; j<n;j++)
+                arr[j]=arr[j+1];
         }
     }
     n = sizeof(arr)/sizeof(arr[0]);
@@ -235,12 +238,74 @@ void deleteElement(int arr[], int elem){
 }
 
 // Program to swap adjacent elements of one dimension array.
+void swapAdjacent(int arr[]){
+    int n = sizeof(arr)/sizeof(arr[0]);
 
+    if(n%2!=0){
+        printf("the array should be even size");
+    }else{
+        for(int i=0; i<n; i+=2){
+            int temp = arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=temp;
+        }
+    }
+    print("After swapping\n");
+    for(int i=0; i<n; i++){
+        printf("%d \t", arr[i]);
+    }
+    printf("\n");
+
+}
 // Program to transpose a matrix.
+void transposeMatrix(int m[][], int row, int col){
+    for(int i=0; i<col; i++){
+        for(int j=0; j<row; j++){
+            printf("%d\t",m[j][i]);
+        }
+        printf("\n");
+    }
+}
 
 // C program to find multiplication of two matrices
+void multiplicationMatrix(int a[][], int b[][], int r1, int r2, int c1, int c2){
+    int res[10][10];
+    if(r1!=c1){
+        printf("Not possible\n");
+    }else{
+        for(int i=0; i<r1; i++){
+            for(int j=0; j<c1; j++){
+                res[i][j]=0;
+                for(int k=0; k<c2; k++){
+                    res[i][j]+=a[i][k]*b[k][j];
+                }
+            }
+        }
+
+        printf("Multiplaction\n");
+        for(int i=0; i<r1; i++){
+            for(int j=0; j<c1; j++){
+                printf("%d\t", res[i][j]);
+            }
+            printf("\n");
+
+        }
+    }
+
+}
 
 // Program to print source code as program output.
+void printFile(){
+    FILE *fp;
+    char c;
+
+    fp = fopen("text.txt", "r");
+    do{
+        c= fgetc(fp);
+        putchar(c);
+    }while(c!=EOF);
+    fclose(fp);
+}
 
 void main(){
     printf("%d", factorial(5));
