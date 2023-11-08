@@ -424,6 +424,27 @@ void addComplex(complex num1, complex num2){
     num3.img = num1.img+num2.img;
     printf("%d+%di\n"num3.real, num3.img);
 }
+//  C program to reverse string in same variable, without using another string variable to reverse.
+int strlength(char str[]){
+    int len=0;
+    for(int i=0; str[i]!='\0'; i++){
+        len++;
+    }
+    return len;
+}
+void reverString(char str[]){
+    int len = strlength(str);
+    char temp;
+    for(int i=0; i<=len/2; i++){
+        temp = str[i];
+        str[i]=str[len-i-1];
+        str[len-i-1]=temp;
+    }
+    printf(str); 
+}
+// C program to find occurrence of a character in the string.
+
+
 void main(){
     printf("%d", factorial(5));
     swapping(0x0C);
