@@ -84,15 +84,77 @@ void HelloWorld(){
 }
 
 // Program to check whether number is palindrome or not.
+void isPalandrome(int num){
+    int rev=0,temp, rem;
+    temp = num;
+    while(temp>0){
+        rem = temp%10;
+        rev*=10+rem;
+        temp/=10;
+    } 
+    if(num == rev){
+        printf("%d is Palandrome\n", num);
+    }else{
+        printf("%d is not a palandrome\n", num);
+    }
+}
 
 // C program to check whether a number if Armstrong or not.
+void isAmstrongNum(int num){
+    int rem, temp, sum=0, count=0;
+    temp = num;
+    while(temp>0){
+        count++;
+        temp/=10;
+    }
+    temp = num;
+    while(temp>0){
+        rem = temp%10;
+        sum += pow(rem, count);
+        temp/=10;
+    }
+    if(sum == num){
+        printf("%d is amstrong Number\n", num);
+    }else{
+        printf("%d is not amstrong number\n",num);
+    }
+}
 
 // C program to check whether a given number is EVEN or ODD
+void isNum(int num){
+    if(num%2==0){
+        printf("%d is even\n",num);
+    }else{
+        printf("%d is Odd\n", num);
+    }
+}
 
 // C program to print all leap years from 1 to N.
-
+int isLeapYear(int year){
+    if(((year%4==0) && (year % 100 !=0) | (year % 400==0))){
+        return 1;
+    }
+    return 0;
+}
+void leapYears(int n1, int n2){
+    for(int i= n1; i<=n2; i++){
+        if(isLeapYear(i)==1){
+            printf("%d\t",i);
+        }
+    }
+    print("\n");
+}
 // C program to convert temperature from Celsius to Fahrenheit and vice versa.
-
+void fToc(float f){
+    float c;
+    c = (f-32)/1.8;
+    printf("%.2f f is %.2 C \n", f, c); 
+}
+void cTof(float c){
+    float f;
+    f = (c*1.8)+32;
+    printf("%.2f c is %.2 f \n", c, f); 
+}
 // C program to convert number from Decimal to Binary.
 
 // C program to convert number from Binary to Decimal.
@@ -111,5 +173,11 @@ void main(){
     swapWords(0x1234);
     swapNumbers(10,20);
     printf("Reverse Number is = %d\n", reverseNum(123));
+    perfectSquare(16);
+    HelloWorld();
+    isPalandrome(101);
+    isAmstrongNum(153);
+    isAmstrongNum(1634);
+    leapYears(2000, 2025);
 
 }
