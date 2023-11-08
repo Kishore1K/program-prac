@@ -306,6 +306,124 @@ void printFile(){
     }while(c!=EOF);
     fclose(fp);
 }
+
+// C Example to subtract two integers without using Minus (-) operator
+void subWithOutMinus(int a,int b){
+    int sub;
+    sub = a+~b+1;
+    printf("%d - %d = %d",a,b, sub);
+}
+// C Example to Multiply two integers without using Mul (*) operator
+void multiWithoutStart(int a, int b){
+    int mul=0;
+    for(int i=1; i<=b; i++){
+        mul+=a;
+    }
+    printf("%d * %d = %d\n",a,b, mul);
+}
+// C program to convert a given number of days into days, weeks, and years
+void daysto(int ndays){
+    int years, weeks, days;
+    years = ndays/365;
+    weeks = (ndays%365)/7;
+    days = (ndays%365)%7;
+    printf("%d Years %d Weeks %d Months\n", years, weeks, days);
+}
+void rootsOfQuadraticEquation(float a, float b, float c){
+    float rootA=0, rootB=0;
+    float realp=0, imgp=0, disc=0;
+    if(a==0 || b==0|| c==0){
+        printf("Cant find Roots");
+        return ;
+    }
+    disc = b*b - (4.0*a*c);
+    if(disc < 0){
+        printf("Imaginary Root\n");
+        realp = -b/(2.0*a);
+        imgp=sqrt(abs(disc))/(2.0*a);
+        printf("Root1 = %f + i %f\n", realp, imgp);
+        printf("Root2 = %f - i %f\n", realp, imgp);
+    }
+    else if( disc==0){
+        printf("Roots are real  and equal");
+        rootA = -b /(2.0*a);
+        rootB=rootA;
+
+        printf("Root1 = %f\n", rootA);
+        printf("Root2 = %f\n", rootA);
+    }else{
+        printf("Roots are real  and distinct");
+        rootA = (-b + sqrt(disc))/(2.0*a);
+        rootB = (-b - sqrt(disc))/(2.0*a);
+        printf("Root1 =  %f\n", rootA);
+        printf("Root2 =  %f\n", rootB);
+    }
+
+}
+// HCF
+void hcf(int a, int b){
+    if(a==0 || b==0){
+        print('Not Possible');
+    }else{
+        while(b!=0){
+            int temp = a%b;
+            a = b;
+            b =temp; 
+        }
+        printf("%d ", b);
+    }
+
+}
+// C program to find the GCD (Greatest Common Divisor) of two integers
+void gcd(int num1, int num2){
+    int x, y, rem;
+    if(num1>num2){
+        x = num1;
+        y = num2;
+    }else{
+        x=num2;
+        y=num1;
+    }
+
+    rem = x%y;
+    while(rem!=0){
+        x=y;
+        y=rem;
+        rem = x%y;
+    }
+    printf("GCD of %d %d is %d\n", num1, num2, rem);
+}
+// C program to find the LCM (Lowest Common Multiple) of two integers
+void lcm(int num1, int num2){
+    int x, y, rem, lcm;
+    if(num1>num2){
+        x=num1;
+        y = num2;
+    }else{
+        x=num2;
+        y = num1;
+    }
+    rem = x%y;
+    while(rem != 0){
+        x=y;
+        y=rem;
+        rem = x%y;
+    }
+    lcm = num1*num2/y;
+
+    printf("LCM of %d %d is %d\n", num1, num2, lcm);
+}
+// C program to calculate the addition of two complex numbers
+typdef struct {
+    int real;
+    int img;
+}complex;
+void addComplex(complex num1, complex num2){
+    complex num3;
+    num3.real = num1.real+num2.real;
+    num3.img = num1.img+num2.img;
+    printf("%d+%di\n"num3.real, num3.img);
+}
 void main(){
     printf("%d", factorial(5));
     swapping(0x0C);
