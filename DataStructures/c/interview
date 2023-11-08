@@ -37,7 +37,7 @@ void swapNumbers(int a, int b){
     printf("After swap A = %d \t B = %d \n",a, b);
     a = a+b;
     b = a-b;
-    b = a-b;
+    a = a-b;
     printf("After swap A = %d \t B = %d \n",a, b);
     a = a*b;
     b = a/b;
@@ -56,7 +56,7 @@ int reverseNum(int data){
     int rev=0, rem;
     while(data > 0){
         rem = data%10;
-        rev*=10+rem;
+        rev= rev*10+rem;
         data/=10;
     }
     return rev;
@@ -69,9 +69,9 @@ void perfectSquare(int num){
     fVal = sqrt(num);
     iVal = (int) fVal;
     if(iVal==fVal){
-        printf("%d is A perfect Square\n");
+        printf("%d is A perfect Square\n", num);
     }else{
-        printf("%d is Not a perfect Square\n");
+        printf("%d is Not a perfect Square\n", num);
     }
 }
 // Program to print "Hello World" without using semicolon.
@@ -90,7 +90,7 @@ void isPalandrome(int num){
     temp = num;
     while(temp>0){
         rem = temp%10;
-        rev*=10+rem;
+        rev=rev*10+rem;
         temp/=10;
     } 
     if(num == rev){
@@ -143,18 +143,18 @@ void leapYears(int n1, int n2){
             printf("%d\t",i);
         }
     }
-    print("\n");
+    printf("\n");
 }
 // C program to convert temperature from Celsius to Fahrenheit and vice versa.
 void fToc(float f){
     float c;
     c = (f-32)/1.8;
-    printf("%.2f f is %.2 C \n", f, c); 
+    printf("%.2f f is %.2f C\n", f, c); 
 }
 void cTof(float c){
     float f;
     f = (c*1.8)+32;
-    printf("%.2f c is %.2 f \n", c, f); 
+    printf("%.2f c is %.2f f\n", c, f); 
 }
 // C program to convert number from Decimal to Binary.
 void decimalToBin(int num){
@@ -166,7 +166,7 @@ void decimalToBin(int num){
         num/=2;
         count++;
     }
-    for(int i=count; i>=0; i--){
+    for(int i=count-1; i>=0; i--){
         printf("%d \t", bin[i]);
     }
     printf("\n");
@@ -174,7 +174,7 @@ void decimalToBin(int num){
 
 // C program to convert number from Binary to Decimal.
 void binToDec(char* bin){
-    int dec, count; 
+    int dec=0, count=0; 
     for(int i= strlen(bin)-1; i>=0; i--){
         dec = dec+(bin[i]-0x30)*pow((double)2, (double)count);
         count++;
@@ -207,18 +207,18 @@ void strCopy(char *s1, char *s2){
 }
 
 // C program to find a number from array elements
-void findElem(int arr[], int item){
+void findElem(int *arr, int item){
     int n = sizeof(arr)/sizeof(arr[0]);
     for(int i=0; i<n; i++){
         if(arr[i]==item){
-            print("%d is Found in Position %d\n", item, i+1);
+            printf("%d is Found in Position %d\n", item, i+1);
         }
     }
-    print("%d is not present\n",item);
+    printf("%d is not present\n",item);
 }
 
 // C program to delete given element from one dimensional array
-void deleteElement(int arr[], int elem){
+void deleteElement(int *arr, int elem){
     int count=0;
     int n = sizeof(arr)/sizeof(arr[0]);
     for(int i=0; i<n; i++){
@@ -231,14 +231,14 @@ void deleteElement(int arr[], int elem){
     n = sizeof(arr)/sizeof(arr[0]);
     printf("%d id deleted\n", elem);
     for(int j=0;j<n; j++){
-        printf("%d \t", arr[i]);
+        printf("%d \t", arr[j]);
     }
     printf("\n");
 
 }
 
 // Program to swap adjacent elements of one dimension array.
-void swapAdjacent(int arr[]){
+void swapAdjacent(int *arr){
     int n = sizeof(arr)/sizeof(arr[0]);
 
     if(n%2!=0){
@@ -250,7 +250,7 @@ void swapAdjacent(int arr[]){
             arr[i+1]=temp;
         }
     }
-    print("After swapping\n");
+    printf("After swapping\n");
     for(int i=0; i<n; i++){
         printf("%d \t", arr[i]);
     }
@@ -258,7 +258,7 @@ void swapAdjacent(int arr[]){
 
 }
 // Program to transpose a matrix.
-void transposeMatrix(int m[][], int row, int col){
+void transposeMatrix(int m[][10], int row, int col){
     for(int i=0; i<col; i++){
         for(int j=0; j<row; j++){
             printf("%d\t",m[j][i]);
@@ -268,7 +268,7 @@ void transposeMatrix(int m[][], int row, int col){
 }
 
 // C program to find multiplication of two matrices
-void multiplicationMatrix(int a[][], int b[][], int r1, int r2, int c1, int c2){
+void multiplicationMatrix(int a[][10], int b[][10], int r1, int r2, int c1, int c2){
     int res[10][10];
     if(r1!=c1){
         printf("Not possible\n");
@@ -306,7 +306,6 @@ void printFile(){
     }while(c!=EOF);
     fclose(fp);
 }
-
 void main(){
     printf("%d", factorial(5));
     swapping(0x0C);
