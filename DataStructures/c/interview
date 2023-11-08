@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include<string.h>
 // C program to find factorial of a number.
 int factorial(int n){
     int fact=1;
@@ -156,9 +157,32 @@ void cTof(float c){
     printf("%.2f c is %.2 f \n", c, f); 
 }
 // C program to convert number from Decimal to Binary.
+void decimalToBin(int num){
+    int bin[32]={0};
+    int count=0;
+
+    while(num > 0){
+        bin[count] = num%2;
+        num/=2;
+        count++;
+    }
+    for(int i=count; i>=0; i--){
+        printf("%d \t", bin[i]);
+    }
+    printf("\n");
+}
 
 // C program to convert number from Binary to Decimal.
+void binToDec(char* bin){
+    int dec, count; 
+    for(int i= strlen(bin)-1; i>=0; i--){
+        dec = dec+(bin[i]-0x30)*pow((double)2, (double)count);
+        count++;
+    }
+    printf("%d is decimal", dec);
+}
 // Program to compare two strings without using strcmp().
+
 // Program to copy string without sing strcpy().
 // C program to find a number from array elements
 // C program to delete given element from one dimensional array
@@ -179,5 +203,10 @@ void main(){
     isAmstrongNum(153);
     isAmstrongNum(1634);
     leapYears(2000, 2025);
+    fToc(100);
+    cTof(32);
+    decimalToBin(5);
+    binToDec("1001");
+    
 
 }
