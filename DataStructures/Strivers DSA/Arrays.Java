@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  *Strivers Arrays Problem  
  * https://takeuforward.org/interviews/tcs-nqt-coding-sheet-tcs-coding-questions/#point_2
@@ -48,9 +50,55 @@ public class Arrays{
         }
         return secondSmallest;
     }
+    static int[] reverseArray(int arr[], int n){
+        for(int i=0; i<n/2; i++){
+            int temp = arr[i];
+            arr[i]=arr[n-i-1];
+            arr[n-i-1]=temp;
+        }
+        return arr;
+    }
+    static void printArray(int arr[]){
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
 
+    static void countFreq(int arr[], int n){
+        boolean visited[] = new boolean[n];
+        int count=0;
+        for(int i=0; i<n; i++){
+            if(visited[i]==true)
+                continue;
+            count=1;
+            for(int j=i+1; j<n; j++){
+                if(arr[i]==arr[j]){
+                    visited[j]=true;
+                    count++;
+                }
+            }
+            System.out.println(arr[i]+ " = "+count);
+        }
+    }
+    // sort array increase+decrease [1,2,3,4,8,7,6,5] 1st half increase and 2nd off decrease
+    static void sortIncDec(int arr[]){
+        Arrays.sort(arr);
+        int n =arr.length;
+        for(int i=0; i<n/2; i++){
+            System.out.print(arr[i]+" ");
+        }
+        for(int i=n-1; i>=n/2; i--){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
-        System.out.println(secondSmallest(new int[]{2,5,7,1,9,6}));
+        int arr[] ={10,5,10,15,10,5};
+        int n = arr.length;
+        // countFreq(arr, n); 
+        sortIncDec(arr);
+            
     }
 }
