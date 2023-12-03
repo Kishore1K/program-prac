@@ -93,6 +93,36 @@ public class Arrays{
         }
         System.out.println();
     }
+    int removeDuplicatesCount(int arr[]){
+        int i=0;
+        for(int j=0; j<arr.length; j++){
+            if(arr[i]!=arr[j]){
+                i++;
+                arr[i]=arr[j];
+            }
+        }
+        return i+1;
+    }
+    static void removeDuplicates(int arr[], int n){
+        int mark[] = new int[n];
+        for(int i=0; i<n; i++){
+            mark[i]=1;
+        }
+
+        for(int i=0; i<n; i++){
+            if(mark[i]==1){
+                for(int j=i+1; j<n; j++){
+                    if(arr[i]==arr[j]){
+                        mark[j]=0;
+                    }
+                }
+            }
+        }
+        for(int i=0; i<n; i++){
+            if(mark[i]==1) System.out.print(arr[i]+" ");
+        }
+    }
+
 
     public static void main(String[] args) {
         int arr[] ={10,5,10,15,10,5};
