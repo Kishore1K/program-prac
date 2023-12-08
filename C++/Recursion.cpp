@@ -66,11 +66,11 @@ int fibonacciNum(int n)
 }
 int main()
 {
-    // printName(5);
-    // printNum(1, 5);
-    // revPrintNum(0, 5);
-    // cout << sumNum(5) << endl;
-    // cout << factorial(5) << endl;
+    printName(5);
+    printNum(1, 5);
+    revPrintNum(0, 5);
+    cout << sumNum(5) << endl;
+    cout << factorial(5) << endl;
     string s = "MADAM";
     cout << isPalindrome(0, s) << endl;
     int arr[] = {1, 2, 3, 4, 5};
