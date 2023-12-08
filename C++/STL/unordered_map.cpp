@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    map<int, int> mp;
+    unordered_map<int, int> mp;
     for (int i = 1; i <= 5; i++)
     {
         mp.insert({i, i * 10});
@@ -36,5 +36,5 @@ int main()
     else
         cout << "The map is empty" << endl;
     mp.clear();
-    cout << "Size of the map after clearing all the elements: " << mp.size();
+    cout << "Size of the set after clearing all the elements: " << mp.size();
 }
