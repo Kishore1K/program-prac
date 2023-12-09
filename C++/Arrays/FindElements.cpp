@@ -109,6 +109,14 @@ void printArray(int arr[], int n)
     }
     cout << endl;
 }
+void printArray(vector<int> &arr, int n)
+{
+    for (auto i = arr.begin(); i != arr.end(); i++)
+    {
+        cout << *i << " ";
+    }
+    cout << endl;
+}
 void moveZerosEnd(int arr[], int n)
 {
     // Two pointerApproach
@@ -144,23 +152,135 @@ int linearSearch(int arr[], int n, int k)
     }
     return -1;
 }
+vector<int> unionOfArrays(int arr1[], int arr2[], int m, int n)
+{
+    int i = 0, j = 0;
+    vector<int> Union;
+    while (i < m && j < n)
+    {
+        if (arr1[i] <= arr2[j])
+        {
+            if (Union.empty() || Union.back() != arr1[i])
+                Union.push_back(arr1[i]);
+            i++;
+        }
+        else
+        {
+            if (Union.empty() || Union.back() != arr2[j])
+                Union.push_back(arr2[j]);
+            j++;
+        }
+    }
+    while (i < m)
+    {
+        if (Union.back() != arr1[i])
+            Union.push_back(arr1[i]);
+        i++;
+    }
+    while (j < n)
+    {
+        if (Union.back() != arr2[j])
+            Union.push_back(arr2[j]);
+        j++;
+    }
+
+    return Union;
+}
+void findMissingNum(int arr[], int n)
+{
+    int sum = n * (n + 1) / 2;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        sum -= arr[i];
+    }
+    cout << sum << " is Missing" << endl;
+}
+void findMaxConsecutiveOnes(int arr[], int n)
+{
+    int count = 0;
+    int maxCount = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == 1)
+            count++;
+        else
+            count = 0;
+
+        if (count > maxCount)
+            maxCount = count;
+    }
+    cout << "Max ConsecutiveOnes " << maxCount << endl;
+}
+void getSingleElement(int arr[], int n)
+{
+    map<int, int> m;
+    for (int i = 0; i < n; i++)
+    {
+        m[arr[i]]++;
+    }
+    for (auto i : m)
+    {
+        if (i.second == 1)
+        {
+            cout << i.first << endl;
+            break;
+        }
+    }
+    return;
+}
+void getLongestSubArray(int arr[], int n, int k)
+{
+    int sum, len = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum = 0;
+        for (int j = i; j < n; j++)
+        {
+            sum += arr[j];
+
+            if (sum == k)
+            {
+                len = max(len, j - i + 1);
+            }
+        }
+    }
+    cout << "The length of the longest subArray is: " << len << endl;
+}
 int main()
 {
-    int arr[] = {2, 5, 1, 3, 0, -30, 1, 4, 2, 1, 0, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    // int arr[] = {2, 5, 1, 3, 0, -30, 1, 4, 2, 1, 0, 3};
+    // int n = sizeof(arr) / sizeof(arr[0]);
     // largestAndSmallElem(arr, n);
     // secondLargestAndSmallest(arr, n);
     // sort(arr + 0, arr + n);
     // cout << isArraySorted(arr, n) << endl;
     // int k = removeDuplicate(arr, n);
     // printArray(arr, k);
-    int arr1[] = {1, 2, 3, 4, 5};
+    // int arr1[] = {1, 2, 3, 4, 5};
     // printArray(arr1, 5);
     // rotateRightArray(arr1, 5, 2);
     // printArray(arr1, 5);
     // printArray(arr, n);
     // moveZerosEnd(arr, n);
     // printArray(arr, n);
-    cout << "Linear Search" << linearSearch(arr1, 5, 3) << endl;
+    // cout << "Linear Search" << linearSearch(arr1, 5, 3) << endl;
+    int n = 10, m = 7;
+    int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int arr2[] = {2, 3, 4, 4, 5, 11, 12};
+    printArray(arr1, n);
+    printArray(arr2, m);
+    vector<int> Union = unionOfArrays(arr1, arr2, n, m);
+    cout << "Union of arr1 and arr2 is  " << endl;
+    printArray(Union, Union.size());
+    int arr3[] = {1, 2, 4, 5};
+    findMissingNum(arr3, 5);
+    int nums[] = {1, 1, 0, 1, 1, 1};
+    findMaxConsecutiveOnes(nums, 6);
+    int nums1[] = {4, 1, 2, 1, 2};
+    getSingleElement(nums1, 5);
+    int nums2[] = {2, 3, 5, 1, 9};
+    getLongestSubArray(nums2, 5, 10);
+
     return 0;
 }
