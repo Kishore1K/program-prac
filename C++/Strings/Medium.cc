@@ -96,6 +96,84 @@ int atoiImpl(string s)
     }
     return num * sign;
 }
+bool isPalandrome(string s)
+{
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] != s[s.size() - i - 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+string longestPalindrome(string s)
+{
+
+    int n = s.length();
+    int max = INT_MIN;
+    string str = "";
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; i + j <= n; j++)
+        {
+            string str1 = s.substr(i, j);
+
+            if (isPalandrome(str1))
+            {
+                int len = str1.length();
+                if (len > max)
+                {
+                    max = len;
+                    str = str1;
+                }
+            }
+        }
+    }
+    return str;
+}
+string reverseWord(string s)
+{
+    int left = 0, right = s.length() - 1;
+    char ch;
+    string temp;
+    string ans;
+
+    while (left <= right)
+    {
+        ch = s[left];
+        if (ch != ' ')
+        {
+            temp += ch;
+        }
+        else if (ch == ' ')
+        {
+            if (ans != "")
+            {
+                ans = temp + " " + ans;
+            }
+            else
+            {
+                ans += temp;
+            }
+            temp = "";
+        }
+        left++;
+    }
+    if (temp != "")
+    {
+        if (ans != "")
+        {
+            ans = temp + " " + ans;
+        }
+        else
+        {
+            ans += temp;
+        }
+        temp = "";
+    }
+    return ans;
+}
 int main()
 {
     string s = "Aabb";
@@ -104,5 +182,7 @@ int main()
     maxDepth(s1);
     romanToInt("MCMXCIV");
     cout << atoiImpl("42") << endl;
+    cout << longestPalindrome("cbbd") << endl;
+    cout << reverseWord("Hello Kishore This is Test") << endl;
     return 0;
 }
