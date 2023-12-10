@@ -106,7 +106,36 @@ bool isElementInLL(SLL *head, int key)
     }
     return false;
 }
+SLL *middleOfLL(SLL *head)
+{
+    SLL *slow = head, *fast = head;
+    while (slow && fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
+SLL *reverseLL(SLL *head)
+{
+    SLL *prev = NULL;
+    SLL *curr = head;
+    SLL *next = NULL;
 
+    // while (curr)
+    // {
+    //     next = curr->next;
+    //     curr->next = prev;
+    //     prev = curr;
+    //     curr = next;
+    // }
+    // head = prev;
+    /*Recursion*/
+    SLL *temp = reverseLL(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return temp;
+}
 int main()
 {
     SLL *head = NULL;
@@ -121,6 +150,8 @@ int main()
     cout << "Length OF LL is : " << lengthOfLL(head) << endl;
     head = deleteAtFirst(head);
     printLL(head);
+    printLL(head);
+    head = reverseLL(head);
     printLL(head);
     cout << "Length OF LL is : " << lengthOfLL(head) << endl;
     cout << "ELement Present " << isElementInLL(head, 40) << endl;
