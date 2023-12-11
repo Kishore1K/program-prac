@@ -210,6 +210,20 @@ bool isPanagram(string s)
     }
     return true;
 }
+bool isRotated(string s, string t)
+{
+    if (s.length() != t.length())
+        return false;
+
+    string clk = "";
+    string aclk = "";
+    int len = t.length();
+
+    aclk += t.substr(len - 2, 2) + t.substr(0, len - 2);
+    clk += t.substr(2) + t.substr(0, 2);
+
+    return s.compare(clk) == 0 || s.compare(aclk) == 0;
+}
 int main()
 {
     cout << reverseWord("Hello Kishore How are You") << endl;
