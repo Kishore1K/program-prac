@@ -224,6 +224,38 @@ bool isRotated(string s, string t)
 
     return s.compare(clk) == 0 || s.compare(aclk) == 0;
 }
+int atoi(string s)
+{
+    int ans = 0;
+    int sign = 1;
+    int i = 0;
+    while (s[i] != ' ')
+    {
+        i++;
+    }
+    if (s[i] == '+')
+    {
+        i++;
+    }
+    else if (s[i] == '-')
+    {
+        i++;
+    }
+    while (s[i] >= 0 && s[i] <= 9 && i < s.length())
+    {
+        ans = ans * 10 + (s[i] - '0');
+
+        if (sign * ans > INT_MAX)
+        {
+            return INT_MAX;
+        }
+        else if (sign * ans < INT_MIN)
+        {
+            return INT_MIN;
+        }
+    }
+    return ans * sign;
+}
 int main()
 {
     cout << reverseWord("Hello Kishore How are You") << endl;
@@ -233,4 +265,5 @@ int main()
          << longestCommonPrefix(input, n) << endl;
     cout << romanToInt("CM") << endl;
     cout << int2Roman(900);
+    cout << atoi(" -177832") << endl;
 }
