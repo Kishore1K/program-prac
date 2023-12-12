@@ -76,6 +76,125 @@ void permutation(string s, int l, int r)
         }
     }
 }
+void removeVowels(string s)
+{
+    string ans = "";
+
+    for (int i = 0; i < s.length() - 1; i++)
+    {
+        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
+        {
+            // continue;
+            s.replace(i, 1, "");
+            i -= 1;
+        }
+        // else
+        // {
+        //     ans.push_back(s[i]);
+        // }
+    }
+    cout << s << endl;
+}
+void suffleStr(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        swap(s[i], s[rand() % s.length()]);
+    }
+    cout << s << endl;
+}
+void toLowerCase(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (isalpha(s[i]) && isupper(s[i]))
+        {
+            s[i] = (s[i] + 32);
+        }
+    }
+    cout << s << endl;
+}
+bool validParentheses(string s)
+{
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+        {
+            st.push(s[i]);
+        }
+        else
+        {
+            if (!st.empty() && s[i] == ')' && st.top() == '(')
+            {
+                st.pop();
+            }
+            if (!st.empty() && s[i] == '}' && st.top() == '{')
+            {
+                st.pop();
+            }
+            if (!st.empty() && s[i] == ']' && st.top() == '[')
+            {
+                st.pop();
+            }
+        }
+    }
+    return st.empty();
+}
+void longestCommonPrefix(string arr[], int n)
+{
+    string res = arr[0];
+    int len = res.length();
+    for (int i = 0; i < n; i++)
+    {
+
+        while (arr[i].find(res) != 0)
+        {
+            res = res.substr(0, len - 1);
+            len--;
+
+            if (res.empty())
+            {
+                cout << "NONEd";
+            }
+        }
+    }
+    cout << res << endl;
+}
+bool isPalandrome(string s)
+{
+    string s1 = s;
+    for (int i = 0; i < s.length() / 2; i++)
+    {
+        char temp = s[i];
+        s[i] = s[s.length() - i - 1];
+        s[s.length() - i - 1] = temp;
+    }
+    return s1 == s;
+}
+void longestPalindromicSubstring(string s)
+{
+    int max = 0;
+    int n = s.length();
+    string str = "";
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; i + j <= n; j++)
+        {
+            string str1 = s.substr(i, j);
+            if (isPalandrome(str1))
+            {
+                int len = str1.length();
+                if (len > max)
+                {
+                    max = len;
+                    str = str1;
+                }
+            }
+        }
+    }
+    cout << str << endl;
+}
 int main()
 {
     string s = "Kishore";
@@ -85,6 +204,13 @@ int main()
     cout << isAnagram("AMMA", "MAMA") << endl;
     string s1 = "ABC";
     permutation(s1, 0, s1.length() - 1);
+    removeVowels("welcome to geeksforgeeks");
+    suffleStr("MEDIUM");
+    toLowerCase("Kisho1re");
+    cout << validParentheses("{()}[]") << endl;
+    string arr[] = {"apple", "ape", "april"};
+    longestCommonPrefix(arr, 3);
+    longestPalindromicSubstring("babad");
 }
 //
 //
