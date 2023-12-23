@@ -102,6 +102,24 @@ void maxProfit(int arr[], int n)
     }
     cout << maxProfit << endl;
 }
+// Function to find all elements in array that appear more than n/k times.
+int countOccurence(int arr[], int n, int k)
+{
+
+    unordered_map<int, int> count;
+    for (int i = 0; i < n; i++)
+    {
+        count[arr[i]]++;
+    }
+
+    int cnt = 0;
+    for (auto x : count)
+    {
+        if (x.second > n / k)
+            cnt++;
+    }
+    return cnt;
+}
 void printArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
